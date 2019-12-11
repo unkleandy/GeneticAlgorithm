@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _SELECTIONROULETTEWHEEL_H_
+#define _SELECTIONROULETTEWHEEL_H_
+
+
 class SelectionRouletteWheel
 {
 public:
@@ -6,3 +10,4 @@ public:
 	~SelectionRouletteWheel();
 };
 
+#endif // !_SELECTIONROULETTEWHEEL_H_

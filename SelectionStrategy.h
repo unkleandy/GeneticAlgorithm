@@ -1,4 +1,8 @@
 #pragma once
+#ifndef _SELECTIONSTRATEGY_H_
+#define _SELECTIONSTRATEGY_H_
+
+
 class SelectionStrategy
 {
 public:
@@ -6,3 +10,4 @@ public:
 	~SelectionStrategy();
 };
 
+#endif // !_SELECTIONSTRATEGY_H_
