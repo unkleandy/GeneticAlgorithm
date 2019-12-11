@@ -8,7 +8,7 @@ class CrossoverStrategy
 {
 public:
 
-	virtual Solution breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring);
+	//virtual Solution breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring);
 	CrossoverStrategy();
 	~CrossoverStrategy();
 };

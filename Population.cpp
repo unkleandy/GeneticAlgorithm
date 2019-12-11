@@ -1,5 +1,5 @@
 #include "Population.h"
-
+#include <Solution.h>
 
 
 Population::Population(){

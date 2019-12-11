@@ -6,14 +6,6 @@
 #include "fitness_t.h"
 #include "GAParameters.h"
 
-//EFFACER UNE FOIS LA CLASSE SOLUTION EST FAITE
-class Solution {
-public:
-	fitness_t fitness() const;
-protected:
-	fitness_t mFitness;
-};
-//---------------------------------------------
 
 class Population
 {

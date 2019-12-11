@@ -11,7 +11,7 @@ public:
 	SelectionStrategy();
 	~SelectionStrategy();
 	virtual void prepare(Population const & population);
-	virtual Solution & const select(Population const & population);
+	//virtual Solution & const select(Population const & population);
 };
 
 #endif // !_SELECTIONSTRATEGY_H_

@@ -5,8 +5,3 @@
 GAEngine::GAEngine()
 {
 }
-
-
-GAEngine::~GAEngine()
-{
-}
