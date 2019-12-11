@@ -141,6 +141,7 @@
     <ClCompile Include="CrossoverStrategy.cpp" />
     <ClCompile Include="EvolutionObserver.cpp" />
     <ClCompile Include="EvolutionStatus.cpp" />
+    <ClCompile Include="Fitness.cpp" />
     <ClCompile Include="fitness_t.cpp" />
     <ClCompile Include="GAEngine.cpp" />
     <ClCompile Include="GAParameters.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="CrossoverStrategy.h" />
     <ClInclude Include="EvolutionObserver.h" />
     <ClInclude Include="EvolutionStatus.h" />
+    <ClInclude Include="Fitness.h" />
     <ClInclude Include="FitnessStatistics.h" />
     <ClInclude Include="fitnessStatisticsOverTime.h" />
     <ClInclude Include="fitness_t.h" />
