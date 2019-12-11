@@ -36,25 +36,25 @@ size_t GAParameters::maximumGenerationCount() const
 	return size_t();
 }
 
-SelectionStrategy & GAParameters::selectionStrategy()
-{
-	// TODO: insérer une instruction return ici
-}
+//SelectionStrategy & GAParameters::selectionStrategy()
+//{
+//	// TODO: insérer une instruction return ici
+//}
 
-CrossoverStrategy & GAParameters::crossoverStrategy()
-{
-	// TODO: insérer une instruction return ici
-}
+//CrossoverStrategy & GAParameters::crossoverStrategy()
+//{
+//	// TODO: insérer une instruction return ici
+//}
 
-MutationStrategy & GAParameters::mutationStrategy()
-{
-	// TODO: insérer une instruction return ici
-}
+//MutationStrategy & GAParameters::mutationStrategy()
+//{
+//	// TODO: insérer une instruction return ici
+//}
 
-Solution const & GAParameters::solutionSample() const
-{
-	// TODO: insérer une instruction return ici
-}
+//Solution const & GAParameters::solutionSample() const
+//{
+//	// TODO: insérer une instruction return ici
+//}
 
 void GAParameters::setPopulationSize(size_t size)
 {
