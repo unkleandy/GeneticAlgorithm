@@ -1,15 +1,29 @@
 
 #include <console.h>
 #include "ShapeOptimizer.h"
-#include "View.h"
-
-
+#include "ShapeCircle.h"
+#include "ViewMenu.h"
+#include "Point.h"
+#include "Rectangle.h"
 
 int main() {
 
 	ShapeOptimizer shOptimizer;
-	View view;
-	view.readInput();
+	ViewMenu viewMenu;
+	ShapeCircle aCircle;
+	Point centre(20.0, 20.0);
+	Point ptAtester(20.0, 11.0);
+	aCircle.set(centre,10.0);
+	aCircle.draw();
+	double area = aCircle.area();
+	Rectangle boundingRect = aCircle.boundingRect();
+	bool inside = aCircle.contains(ptAtester);
+	bool valid = aCircle.isValid();
+
+	aCircle.set(centre, 0);
+	valid = aCircle.isValid();
+
+	// viewMenu.readInput();
 
 	// Code non utilisé, conservé pour références futures
 	/*using namespace windows_console;
@@ -39,9 +53,6 @@ int main() {
 
 	image i2;
 	i2 << fill;
-
-	
-
 
 	console_events ce;
 	while (true) {

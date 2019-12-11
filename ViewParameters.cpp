@@ -1,8 +1,6 @@
-#include "View.h"
+#include "ViewParameters.h"
 
-
-
-View::View()
+ViewParameters::ViewParameters()
 {
 	using namespace windows_console;
 	using namespace std;
@@ -12,7 +10,7 @@ View::View()
 	mBlankImage << fill;
 }
 
-void View::setupWindow() {
+void ViewParameters::setupWindow() {
 	using namespace windows_console;
 	csl << window::title(mTxtTitle);
 
@@ -22,9 +20,10 @@ void View::setupWindow() {
 		<< window::center
 		<< cursor::invisible;
 	csl >> mImage;
+	csl >> mBlankImage;
 }
 
-void View::drawTest() {
+void ViewParameters::drawTest() {
 	using namespace windows_console;
 	mImage << pen(dot, text_color(bright, red), background_color(dark, red))
 		<< point(100, 100)
@@ -37,12 +36,12 @@ void View::drawTest() {
 	csl << mImage;
 }
 
-void View::clearScreen() {
+void ViewParameters::clearScreen() {
 	using namespace windows_console;
 	csl << mBlankImage;
 }
 
-void View::readInput() {
+void ViewParameters::readInput() {
 	using namespace windows_console;
 	console_events ce;
 	while (true) {

@@ -1,22 +1,22 @@
 #pragma once
-#ifndef VIEW_H
-#define VIEW_H
+#ifndef VIEW_RUNTIME_H
+#define VIEW_RUNTIME_H
 
 #include <string>
 #include <console.h>
 #include "ShapeOptimizer.h"
 
-class View
+class ViewRuntime
 {
 public:
-	View();
-	~View() = default;
+	ViewRuntime();
+	~ViewRuntime();
 	void drawTest();
 	void readInput();
 	void clearScreen();
 
 private:
-	std::string const & mTxtTitle{"B52 - Projet Final"};
+	std::string const & mTxtTitle{ "B52 - Projet Final" };
 	std::string const& mFontStyle{ "Consolas" };
 	// int const & mRunningFontSize{ 3 };
 	// double const & mRunningFontRatio{ 1.0 };
@@ -27,8 +27,6 @@ private:
 	void setupWindow();
 	windows_console::font::size_type mRunningFontSize{ 3 };
 	windows_console::font::ratio_type mRunningFontRatio{ 1.0 };
-
 };
 
-
-#endif // VIEW_H
+#endif // VIEW_RUNTIME_H
