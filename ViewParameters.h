@@ -10,23 +10,39 @@ class ViewParameters
 {
 public:
 	ViewParameters();
-	~ViewParameters();
-	void drawTest();
+	~ViewParameters() = default;
 	void readInput();
 	void clearScreen();
 
 private:
-	std::string const & mTxtTitle{ "B52 - Projet Final" };
-	std::string const& mFontStyle{ "Consolas" };
-	// int const & mRunningFontSize{ 3 };
-	// double const & mRunningFontRatio{ 1.0 };
-	int consoleWidth{ 300 };
-	int consoleHeight{ 200 };
+	static std::string sTxtTitle;
+	static std::string sFontStyle;
+	static std::string sMenuTitle;
+	static std::string sActualObstacleCount;
+	static std::string sChangeObstacleCountQuestion;
+	static std::string sObstacleCountQuestion;
+	static std::string sObstaclesPositionQuestion;
+	static std::string sPopulationSizeQuestion;
+	static std::string sElitismSizeQuestion;
+	static std::string sPopulationCountQuestion;
+	static std::string sMaximumGenerationCountQuestion;
+	static std::string sChosenShapeQuestion;
+	int consoleWidth{ 150 };
+	int consoleHeight{ 30 };
 	windows_console::image mImage;
 	windows_console::image mBlankImage;
+	windows_console::font::size_type mRunningFontSize{ 16 };
+	windows_console::font::ratio_type mRunningFontRatio{ 0.5 };
+	size_t mPopulationSize;
+	size_t mObstacleCount;
+	size_t mElitismSize;
+	size_t mConcurrentPopulationCount;
+	size_t MaximumGenerationCount;
+	std::string chosenShape;
+
+
 	void setupWindow();
-	windows_console::font::size_type mRunningFontSize{ 3 };
-	windows_console::font::ratio_type mRunningFontRatio{ 1.0 };
+	void displayMenu();
 };
 
 #endif // VIEW_PARAMETERS_H

@@ -11,8 +11,8 @@
 class ShapeObserver : public EvolutionObserver
 {
 public:
-	ShapeObserver();
-	~ShapeObserver();
+	ShapeObserver() = default;
+	~ShapeObserver() = default;
 	/*
 	void update(GAEngine const & engine) override;
 

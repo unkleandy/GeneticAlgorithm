@@ -1,5 +1,37 @@
+#include <iostream>
 #include "ViewMenu.h"
 
+std::string ViewMenu::sTxtTitle( "B52 - Projet Final" );
+std::string ViewMenu::sFontStyle( "Consolas" );
+
+std::string ViewMenu::sMenuText(
+R"-(
+B52 - Laboratoire 3 - Algorithme genetique
+
+Controle des parametres :
+ - [1][2][3][4][5][6]				Nombre de populations concurrentes
+ - [F1][F2]							Taille de la population (-/+)
+ - [F3][F4]							Taille de l'elitisme (-/+)
+ - [F5][F6]							Taux de mutation (-/+)
+ - [F7][F8]							Nombre maximum de generation (-/+)
+ - [F9][F10]						Nombre d'obstacles sur le canevas (-/+)
+ - [F12]							Reinitialiser la position des obstacles
+
+Forme a optimiser : 
+ - [a][s][d]						Cercle, Rectangle, Triangle
+
+Controle : 
+ - [esc]							Quitte l'application
+ - [espace]							Demarre la simulation
+
+Controle pendant la simulation : 
+ - [esc]							Termine la simulation et revient à la page parametres
+ - [espace]							Bascule l'affichage des solutions : aucune - toutes - la meilleure
+
+... appuyez sur une touche pour continuer vers la configuration des parametres
+
+
+)-");
 
 
 ViewMenu::ViewMenu()
@@ -10,13 +42,14 @@ ViewMenu::ViewMenu()
 	setupWindow();
 	// mBlankImage est un buffer vide
 	mBlankImage << fill;
+	displayMenu();
 }
 
 void ViewMenu::setupWindow() {
 	using namespace windows_console;
-	csl << window::title(mTxtTitle);
+	csl << window::title(sTxtTitle);
 
-	csl << window::fit(consoleWidth, consoleHeight, mFontStyle, mRunningFontSize, mRunningFontRatio)
+	csl << window::fit(consoleWidth, consoleHeight, sFontStyle, mRunningFontSize, mRunningFontRatio)
 		<< window::unclosable
 		<< window::unresizable
 		<< window::center
@@ -25,22 +58,14 @@ void ViewMenu::setupWindow() {
 	csl >> mBlankImage;
 }
 
-void ViewMenu::drawTest() {
-	using namespace windows_console;
-	mImage << pen(dot, text_color(bright, red), background_color(dark, red))
-		<< point(100, 100)
-		<< brush(dot, text_color(dark, blue), background_color(dark, blue))
-		<< rectangle(105, 105, 150, 150)
-		<< no_brush
-		<< circle(20, 20, 10)
-		<< pen(dot, text_color(bright, yellow), background_color(dark, red))
-		<< line(0, 0, 100, 100);
-	csl << mImage;
-}
-
 void ViewMenu::clearScreen() {
 	using namespace windows_console;
 	csl << mBlankImage;
+}
+
+void ViewMenu::displayMenu() {
+	std::cout << sMenuText;
+	readInput();
 }
 
 void ViewMenu::readInput() {
@@ -49,15 +74,7 @@ void ViewMenu::readInput() {
 	while (true) {
 		ce.read_events();
 		while (ce.key_events_count()) {
-			switch (ce.next_key_event().ascii_value()) {
-			case ' ':
-				drawTest();
-				break;
-			case 'a':
-			case 'A':
-				clearScreen();
-				break;
-			}
+			exit(0);
 		}
 	}
 }

@@ -2,28 +2,64 @@
 #include <console.h>
 #include "ShapeOptimizer.h"
 #include "ShapeCircle.h"
+#include "ShapeRectangle.h"
 #include "ViewMenu.h"
+#include "ViewRuntime.h"
 #include "Point.h"
+#include "Size.h"
 #include "Rectangle.h"
 
 int main() {
 
-	ShapeOptimizer shOptimizer;
-	ViewMenu viewMenu;
-	ShapeCircle aCircle;
-	Point centre(20.0, 20.0);
-	Point ptAtester(20.0, 11.0);
-	aCircle.set(centre,10.0);
-	aCircle.draw();
-	double area = aCircle.area();
-	Rectangle boundingRect = aCircle.boundingRect();
-	bool inside = aCircle.contains(ptAtester);
-	bool valid = aCircle.isValid();
+	ViewMenu viewmenu;
 
-	aCircle.set(centre, 0);
-	valid = aCircle.isValid();
 
-	// viewMenu.readInput();
+
+
+	// Code utilisé pour tests, conservé pour références futures
+	
+	//ShapeOptimizer shOptimizer;
+	//ViewRuntime viewRuntime;
+	//ShapeCircle aCircle;
+	//Point centre(20.0, 20.0);
+	//Point ptAtester(20.0, 11.0);
+	//aCircle.set(centre,10.0);
+	//aCircle.draw();
+	//double area = aCircle.area();
+	//Rectangle boundingRect = aCircle.boundingRect();
+	//bool inside = aCircle.contains(ptAtester);
+	//bool valid = aCircle.isValid();
+
+	//aCircle.set(centre, 0);
+	//valid = aCircle.isValid();
+
+	//ShapeRectangle aRectangle;
+	//aRectangle.set(Point(40, 40), Size(30, 60));
+	//aRectangle.draw();
+	//inside = aRectangle.contains(ptAtester);
+	//ptAtester.set(45, 70);
+	//inside = aRectangle.contains(ptAtester);
+	//valid = aRectangle.isValid();
+	//area = aRectangle.area();
+
+	//aRectangle.setSize(Size(0, 10));
+	//valid = aRectangle.isValid();
+	//aRectangle.setSize(Size(20, 0));
+	//valid = aRectangle.isValid();
+
+	//Canvas aCanvas(Rectangle(0,0,300, 200), 20);
+	//valid = aCanvas.isValid();
+	//aCanvas.drawObstacles();
+
+
+
+
+
+
+
+
+
+
 
 	// Code non utilisé, conservé pour références futures
 	/*using namespace windows_console;

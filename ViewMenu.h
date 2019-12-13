@@ -11,23 +11,22 @@ class ViewMenu
 public:
 	ViewMenu();
 	~ViewMenu() = default;
-	void drawTest();
 	void readInput();
 	void clearScreen();
 
 private:
-	std::string const & mTxtTitle{"B52 - Projet Final"};
-	std::string const& mFontStyle{ "Consolas" };
-	// int const & mRunningFontSize{ 3 };
-	// double const & mRunningFontRatio{ 1.0 };
-	int consoleWidth{ 300 };
-	int consoleHeight{ 200 };
+	static std::string sTxtTitle;
+	static std::string sFontStyle;
+	static std::string sMenuText;
+	int consoleWidth{ 150 };
+	int consoleHeight{ 30 };
 	windows_console::image mImage;
 	windows_console::image mBlankImage;
-	void setupWindow();
-	windows_console::font::size_type mRunningFontSize{ 3 };
-	windows_console::font::ratio_type mRunningFontRatio{ 1.0 };
+	windows_console::font::size_type mRunningFontSize{ 16 };
+	windows_console::font::ratio_type mRunningFontRatio{ 0.5 };
 
+	void setupWindow();
+	void displayMenu();
 };
 
 #endif // VIEW_MENU_H

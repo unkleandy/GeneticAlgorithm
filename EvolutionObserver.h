@@ -2,7 +2,7 @@
 class EvolutionObserver
 {
 public:
-	EvolutionObserver();
-	~EvolutionObserver();
+	EvolutionObserver() = default;
+	~EvolutionObserver() = default;
 };
 

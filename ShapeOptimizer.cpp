@@ -2,11 +2,4 @@
 
 
 
-ShapeOptimizer::ShapeOptimizer()
-{
-}
 
-
-ShapeOptimizer::~ShapeOptimizer()
-{
-}

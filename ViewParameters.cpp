@@ -1,4 +1,20 @@
+#include <iostream>
 #include "ViewParameters.h"
+
+std::string ViewParameters::sTxtTitle("B52 - Projet Final");
+std::string ViewParameters::sFontStyle("Consolas");
+
+std::string ViewParameters::sMenuTitle("Configuration des parametres de la simulation");
+std::string ViewParameters::sActualObstacleCount("Le nombre d'obstacle actuel est de : ");
+std::string ViewParameters::sChangeObstacleCountQuestion("Voulez-vous changer le nombre d'obstacle (O/N) ?");
+std::string ViewParameters::sObstacleCountQuestion("Entrez le nombre d'obstacle désiré (min 0, max 250) : ");
+std::string ViewParameters::sObstaclesPositionQuestion("Voulez-vous réinitialiser aléatoirement la position des obstacles?");
+
+std::string ViewParameters::sElitismSizeQuestion("Entrez le ");
+std::string ViewParameters::sPopulationCountQuestion;
+std::string ViewParameters::sMaximumGenerationCountQuestion;
+std::string ViewParameters::sChosenShapeQuestion;
+
 
 ViewParameters::ViewParameters()
 {
@@ -8,13 +24,14 @@ ViewParameters::ViewParameters()
 	setupWindow();
 	// mBlankImage est un buffer vide
 	mBlankImage << fill;
+	displayMenu();
 }
 
 void ViewParameters::setupWindow() {
 	using namespace windows_console;
-	csl << window::title(mTxtTitle);
+	csl << window::title(sTxtTitle);
 
-	csl << window::fit(consoleWidth, consoleHeight, mFontStyle, mRunningFontSize, mRunningFontRatio)
+	csl << window::fit(consoleWidth, consoleHeight, sFontStyle, mRunningFontSize, mRunningFontRatio)
 		<< window::unclosable
 		<< window::unresizable
 		<< window::center
@@ -23,22 +40,14 @@ void ViewParameters::setupWindow() {
 	csl >> mBlankImage;
 }
 
-void ViewParameters::drawTest() {
-	using namespace windows_console;
-	mImage << pen(dot, text_color(bright, red), background_color(dark, red))
-		<< point(100, 100)
-		<< brush(dot, text_color(dark, blue), background_color(dark, blue))
-		<< rectangle(105, 105, 150, 150)
-		<< no_brush
-		<< circle(20, 20, 10)
-		<< pen(dot, text_color(bright, yellow), background_color(dark, red))
-		<< line(0, 0, 100, 100);
-	csl << mImage;
-}
-
 void ViewParameters::clearScreen() {
 	using namespace windows_console;
 	csl << mBlankImage;
+}
+
+void ViewParameters::displayMenu() {
+	std::cout << sMenuTitle;
+	readInput();
 }
 
 void ViewParameters::readInput() {
@@ -47,15 +56,8 @@ void ViewParameters::readInput() {
 	while (true) {
 		ce.read_events();
 		while (ce.key_events_count()) {
-			switch (ce.next_key_event().ascii_value()) {
-			case ' ':
-				drawTest();
-				break;
-			case 'a':
-			case 'A':
-				clearScreen();
-				break;
-			}
+			exit(0);
 		}
 	}
 }
+

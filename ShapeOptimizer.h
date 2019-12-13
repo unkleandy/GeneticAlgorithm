@@ -10,19 +10,25 @@
 class ShapeOptimizer
 {
 public:
-	ShapeOptimizer();
-	~ShapeOptimizer();
+	ShapeOptimizer() = default;
+	~ShapeOptimizer() = default;
 	void run();
-	/*
+
+	size_t mPopulationSize;
+	size_t mElitismSize;
+	size_t mConcurrentPopulationCount;
+	size_t mMaximumGenerationCount;
+	std::string mChosenShape;
+	
 
 private:
 	GAEngine mEngine;
 	GAParameters mParameters;
 	Canvas mCanvas;
-	ShapeObserver mObserver;
+	//ShapeObserver mObserver;
 
 	void update(GAEngine const & engine);
-	*/
+	
 };
 
 #endif // SHAPE_OPTIMIZER_H

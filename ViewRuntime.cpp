@@ -1,5 +1,7 @@
 #include "ViewRuntime.h"
 
+
+
 ViewRuntime::ViewRuntime()
 {
 	using namespace windows_console;
@@ -12,9 +14,9 @@ ViewRuntime::ViewRuntime()
 
 void ViewRuntime::setupWindow() {
 	using namespace windows_console;
-	csl << window::title(mTxtTitle);
+	csl << window::title(sTxtTitle);
 
-	csl << window::fit(consoleWidth, consoleHeight, mFontStyle, mRunningFontSize, mRunningFontRatio)
+	csl << window::fit(consoleWidth, consoleHeight, sFontStyle, mRunningFontSize, mRunningFontRatio)
 		<< window::unclosable
 		<< window::unresizable
 		<< window::center
