@@ -8,7 +8,7 @@
 class CrossoverSinglePointByChromosome : public CrossoverStrategy
 {
 public:
-	//Solution breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring) override;
+	Solution const & breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring) override;
 	CrossoverSinglePointByChromosome();
 	~CrossoverSinglePointByChromosome();
 };

@@ -10,8 +10,8 @@ class SelectionStrategy
 public:
 	SelectionStrategy();
 	~SelectionStrategy();
-	virtual void prepare(Population const & population);
-	//virtual Solution & const select(Population const & population);
+	virtual void prepare(Population const & population) = 0;
+	virtual Solution const & select(Population const & population) = 0;
 };
 
 #endif // !_SELECTIONSTRATEGY_H_

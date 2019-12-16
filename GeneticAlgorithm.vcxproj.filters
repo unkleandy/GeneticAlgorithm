@@ -13,171 +13,195 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\Dre">
+      <UniqueIdentifier>{33174f98-2cc6-4d3a-9152-d353c7222684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ET">
+      <UniqueIdentifier>{19e5efdf-b729-4b50-bf39-6686f3edc60a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Frederic">
+      <UniqueIdentifier>{c05788de-902d-47b8-85a8-f385fe56a298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Francis">
+      <UniqueIdentifier>{c5f256c5-91b7-447a-8417-fe8783e37e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Dre">
+      <UniqueIdentifier>{782dcd16-0c9d-4d04-a97c-3aa912457a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Etienne">
+      <UniqueIdentifier>{a0c03c03-7121-4f0c-b7c4-2b08ce59ad9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Frederic">
+      <UniqueIdentifier>{8663814b-3da0-4e86-b24b-637871050913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Francis">
+      <UniqueIdentifier>{a4f13020-84aa-4f93-9ebb-cb770442ff22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GAParameters.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectionStrategy.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectionRouletteWheel.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="CrossoverSinglePointByChromosome.cpp">
+      <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
     <ClCompile Include="CrossoverStrategy.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="CrossoverSinglePointByChromosome.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="MutationByChromosome.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="MutationStrategy.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
     <ClCompile Include="EvolutionObserver.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
     <ClCompile Include="EvolutionStatus.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GAEngine.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Frederic</Filter>
     </ClCompile>
     <ClCompile Include="Chromosome.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="fitness_t.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Population.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PopulationEngine.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Projet3.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="RandomUtil.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Shape.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeCircle.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeObserver.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeOptimizer.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeRectangle.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeTriangle.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\ET</Filter>
     </ClCompile>
     <ClCompile Include="Fitness.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\ET</Filter>
+    </ClCompile>
+    <ClCompile Include="fitness_t.cpp">
+      <Filter>Fichiers sources\ET</Filter>
+    </ClCompile>
+    <ClCompile Include="GAEngine.cpp">
+      <Filter>Fichiers sources\Francis</Filter>
+    </ClCompile>
+    <ClCompile Include="GAParameters.cpp">
+      <Filter>Fichiers sources\Dre</Filter>
+    </ClCompile>
+    <ClCompile Include="MutationByChromosome.cpp">
+      <Filter>Fichiers sources\Dre</Filter>
+    </ClCompile>
+    <ClCompile Include="MutationStrategy.cpp">
+      <Filter>Fichiers sources\Dre</Filter>
+    </ClCompile>
+    <ClCompile Include="Population.cpp">
+      <Filter>Fichiers sources\Francis</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationEngine.cpp">
+      <Filter>Fichiers sources\Francis</Filter>
+    </ClCompile>
+    <ClCompile Include="Projet3.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomUtil.cpp">
+      <Filter>Fichiers sources\ET</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionRouletteWheel.cpp">
+      <Filter>Fichiers sources\Dre</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionStrategy.cpp">
+      <Filter>Fichiers sources\Dre</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeCircle.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeObserver.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeOptimizer.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeRectangle.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeTriangle.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Fichiers sources\Frederic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GAParameters.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectionStrategy.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectionRouletteWheel.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CrossoverSinglePointByChromosome.h">
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
     <ClInclude Include="CrossoverStrategy.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CrossoverSinglePointByChromosome.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="MutationByChromosome.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="MutationStrategy.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
     <ClInclude Include="EvolutionObserver.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
     <ClInclude Include="EvolutionStatus.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
-    <ClInclude Include="GAEngine.h">
-      <Filter>Fichiers sources</Filter>
+    <ClInclude Include="GAParameters.h">
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
-    <ClInclude Include="Canvas.h">
-      <Filter>Fichiers sources</Filter>
+    <ClInclude Include="MutationByChromosome.h">
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
-    <ClInclude Include="Chromosome.h">
-      <Filter>Fichiers sources</Filter>
+    <ClInclude Include="MutationStrategy.h">
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
-    <ClInclude Include="fitness_t.h">
-      <Filter>Fichiers sources</Filter>
+    <ClInclude Include="SelectionRouletteWheel.h">
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionStrategy.h">
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
     <ClInclude Include="FitnessStatistics.h">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
     </ClInclude>
-    <ClInclude Include="fitnessStatisticsOverTime.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="population.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="PopulationEngine.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="RandomUtil.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangle.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Shape.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeCircle.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeObserver.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeOptimizer.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeRectangle.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeTriangle.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Size.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Fichiers sources</Filter>
+    <ClInclude Include="fitness_t.h">
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
     </ClInclude>
     <ClInclude Include="Fitness.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomUtil.h">
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
+    </ClInclude>
+    <ClInclude Include="fitnessStatisticsOverTime.h">
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeCircle.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeObserver.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeOptimizer.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeRectangle.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeTriangle.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="Size.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Fichiers d%27en-tête\Frederic</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationEngine.h">
+      <Filter>Fichiers d%27en-tête\Francis</Filter>
+    </ClInclude>
+    <ClInclude Include="population.h">
+      <Filter>Fichiers d%27en-tête\Francis</Filter>
+    </ClInclude>
+    <ClInclude Include="GAEngine.h">
+      <Filter>Fichiers d%27en-tête\Francis</Filter>
+    </ClInclude>
+    <ClInclude Include="Chromosome.h">
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
