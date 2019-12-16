@@ -15,6 +15,7 @@ GAParameters::GAParameters()
 
 GAParameters::~GAParameters()
 {
+	clearAll();
 }
 
 bool GAParameters::isValid() const
