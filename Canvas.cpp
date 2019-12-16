@@ -4,11 +4,12 @@
 
 
 
-Canvas::Canvas(Rectangle rectangle, size_t obstacleCount)
+Canvas::Canvas(Rectangle const & rectangle, size_t obstacleCount)
 	:
 	mRect{ rectangle }
 
 {
+	set(Rectangle(0, 0, 300, 200), 20);
 	mObstacles.resize(obstacleCount);
 	randomizeObstacles();
 }
@@ -32,7 +33,6 @@ void Canvas::set(Rectangle const & rectangle, size_t obstacleCount) {
 
 void Canvas::setObstacles(size_t obstacleCount) {
 	mObstacles.resize(obstacleCount);
-	randomizeObstacles();
 }
 
 double Canvas::generateRandomObstacleX() {

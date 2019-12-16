@@ -39,7 +39,6 @@
     <ClCompile Include="ShapeRectangle.cpp" />
     <ClCompile Include="ShapeTriangle.cpp" />
     <ClCompile Include="ViewMenu.cpp" />
-    <ClCompile Include="ViewParameters.cpp" />
     <ClCompile Include="ViewRuntime.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -65,7 +64,6 @@
     <ClInclude Include="ShapeTriangle.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="ViewMenu.h" />
-    <ClInclude Include="ViewParameters.h" />
     <ClInclude Include="ViewRuntime.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

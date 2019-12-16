@@ -10,8 +10,15 @@
 #include "Rectangle.h"
 
 int main() {
-
-	ViewMenu viewmenu;
+	// Ajoute un filtre pour ne pas générer 2 événements lors d'une entrée au cliavier (un au "key up" et un au "key down")
+	windows_console::csl << windows_console::key_events::add_filter<windows_console::key_filter_up>;
+	ViewMenu viewMenu;
+	ViewRuntime viewRuntime;
+	ShapeOptimizer shapeOptimizer(viewMenu, viewRuntime);
+	ShapeOptimizer * shapeOptimizerPtr = & shapeOptimizer;
+	viewMenu.setShapeOptimizer(shapeOptimizerPtr);
+	viewRuntime.setShapeOptimizer(shapeOptimizerPtr);
+	shapeOptimizer.run();
 
 
 

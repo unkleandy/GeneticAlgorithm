@@ -12,7 +12,7 @@ class Canvas
 	
 public:
 	Canvas() = default;
-	Canvas(Rectangle rectangle, size_t obstacleCount);
+	Canvas(Rectangle const & rectangle, size_t obstacleCount);
 	~Canvas() = default;
 
 	
