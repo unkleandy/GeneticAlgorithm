@@ -13,12 +13,14 @@ public:
 	ShapeRectangle() = default;
 	~ShapeRectangle() = default;
 
-	bool isValid() const override; // pas mRadius = 0, 
+	bool isValid() const override; 
 	void draw() const override;
 	double area() const override;
 	Rectangle boundingRect() const override;
-	bool contains(Point const & p) const override;   // utiliser distance2 < mRadius * mRadius
+	bool contains(Point const & p) const override;   
 	// Shape * clone() const override;
+
+	
 };
 
 #endif // SHAPE_RECTANGLE_H

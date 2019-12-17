@@ -3,7 +3,7 @@
 #include "ShapeRectangle.h"
 
 
-
+// faire un triangle de 1 par 1 et transform
 
 bool ShapeRectangle::isValid() const {
 	return Rect2d::isValid();

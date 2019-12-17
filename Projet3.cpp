@@ -3,6 +3,7 @@
 #include "ShapeOptimizer.h"
 #include "ShapeCircle.h"
 #include "ShapeRectangle.h"
+#include "ShapeEquilateralTriangle.h"
 #include "ViewMenu.h"
 #include "ViewRuntime.h"
 #include "Point.h"
@@ -27,15 +28,19 @@ int main() {
 	
 	//ShapeOptimizer shOptimizer;
 	//ViewRuntime viewRuntime;
-	//ShapeCircle aCircle;
-	//Point centre(20.0, 20.0);
-	//Point ptAtester(20.0, 11.0);
-	//aCircle.set(centre,10.0);
-	//aCircle.draw();
-	//double area = aCircle.area();
-	//Rectangle boundingRect = aCircle.boundingRect();
-	//bool inside = aCircle.contains(ptAtester);
-	//bool valid = aCircle.isValid();
+	//ShapeEquilateralTriangle aTriangle;
+	//Point bottomLeft(20.0, 40);
+
+	//Point ptAtester(25,30);
+	//aTriangle.set(bottomLeft,10);
+
+	////aTriangle.transform(20, 40, 30, 400);
+	//aTriangle.rotate(120);
+	//aTriangle.draw();
+	//double area = aTriangle.area();
+	//Rectangle boundingRect = aTriangle.boundingRect();
+	//bool inside = aTriangle.contains(ptAtester);
+	//bool valid = aTriangle.isValid();
 
 	//aCircle.set(centre, 0);
 	//valid = aCircle.isValid();

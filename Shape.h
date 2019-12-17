@@ -8,8 +8,8 @@
 class Shape
 {
 public:
-	Shape();
-	~Shape();
+	Shape() = default;
+	~Shape() = default;
 	
 	virtual bool isValid() const = 0;
 	virtual void draw() const = 0;

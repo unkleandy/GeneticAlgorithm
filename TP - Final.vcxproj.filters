@@ -30,9 +30,6 @@
     <ClCompile Include="Projet3.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Shape.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="ShapeCircle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -43,9 +40,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="ShapeRectangle.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeTriangle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="CrossoverSinglePointByChromosome.cpp">
@@ -76,6 +70,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="RandomTools.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeEquilateralTriangle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,9 +110,6 @@
     <ClInclude Include="ShapeRectangle.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ShapeTriangle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Size.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -147,6 +141,9 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="RandomTools.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeEquilateralTriangle.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

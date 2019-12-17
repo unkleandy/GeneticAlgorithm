@@ -32,12 +32,11 @@
     <ClCompile Include="RandomTools.cpp" />
     <ClCompile Include="SelectionRouletteWheel.cpp" />
     <ClCompile Include="SelectionStrategy.cpp" />
-    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapeCircle.cpp" />
     <ClCompile Include="ShapeObserver.cpp" />
     <ClCompile Include="ShapeOptimizer.cpp" />
     <ClCompile Include="ShapeRectangle.cpp" />
-    <ClCompile Include="ShapeTriangle.cpp" />
+    <ClCompile Include="ShapeEquilateralTriangle.cpp" />
     <ClCompile Include="ViewMenu.cpp" />
     <ClCompile Include="ViewRuntime.cpp" />
   </ItemGroup>
@@ -61,7 +60,7 @@
     <ClInclude Include="ShapeObserver.h" />
     <ClInclude Include="ShapeOptimizer.h" />
     <ClInclude Include="ShapeRectangle.h" />
-    <ClInclude Include="ShapeTriangle.h" />
+    <ClInclude Include="ShapeEquilateralTriangle.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="ViewMenu.h" />
     <ClInclude Include="ViewRuntime.h" />
