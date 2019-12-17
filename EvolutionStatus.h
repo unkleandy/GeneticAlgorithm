@@ -1,8 +1,4 @@
 #pragma once
-#ifndef _EVOLUTIONSTATUS_H_
-#define _EVOLUTIONSTATUS_H_
-
-
 class EvolutionStatus
 {
 public:
@@ -10,4 +6,3 @@ public:
 	~EvolutionStatus();
 };
 
-#endif // !_EVOLUTIONSTATUS_H_

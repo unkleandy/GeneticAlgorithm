@@ -1,6 +1,11 @@
 #include "Solution.h"
 
 
+Solution::Solution()
+	: mFitness{}
+{
+}
+
 Chromosome const & Solution::chromosome() const
 {
 	return mChromosome;

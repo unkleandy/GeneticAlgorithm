@@ -1,13 +1,14 @@
 #include "ShapeSolution.h"
 
 
-
-ShapeSolution::ShapeSolution()
+ShapeSolution::ShapeSolution(Canvas const & canvas)
+	: mCanvas{ canvas }
 {
 }
 
 void ShapeSolution::draw() const
 {
+	mShape->draw();
 }
 
 void ShapeSolution::processFitness()

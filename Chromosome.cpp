@@ -1,5 +1,3 @@
-#include <bitset>
-
 #include "Chromosome.h"
 #include "RandomUtil.h"
 

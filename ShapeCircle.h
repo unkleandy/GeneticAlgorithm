@@ -6,22 +6,21 @@
 #include "Rectangle.h"
 #include "Shape.h"
 
-class ShapeCircle
-{
+class ShapeCircle : public Shape {
 public:
-	ShapeCircle();
-	~ShapeCircle();
+	ShapeCircle() = default;
+	~ShapeCircle() = default;
 
 	Point const & center() const;
 	double radius() const;
 	void setCenter(Point const & center);
 	void setRadius(double radius);
 	void set(Point const & center, double radius);
-	// bool isValid() const override;
-	// void draw() const override;
-	// double area const override;
-	// Rectangle boundingRect() const override;
-	// bool contains(Point const & p) const override;
+	bool isValid() const override; // pas mRadius = 0, 
+	void draw() const override;
+	double area() const override;
+	Rectangle boundingRect() const override;
+	bool contains(Point const & p) const override;   // utiliser distance2 < mRadius * mRadius
 	// Shape * clone() const override;
 
 

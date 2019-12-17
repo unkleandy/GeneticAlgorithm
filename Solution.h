@@ -10,7 +10,7 @@
 class Solution
 {
 public:
-	Solution() = default;
+	Solution();
 	virtual ~Solution() = default;
 
 	Chromosome const & chromosome() const;
@@ -31,4 +31,4 @@ protected:
 };
 
 
-#endif // SOLUTION_H
+#endif // !SOLUTION_H
