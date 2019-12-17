@@ -13,17 +13,18 @@
 #include "EvolutionStatus.h"
 #include "EvolutionObserver.h"
 
+class EvolutionObserver
+{
+public:
+	EvolutionObserver() = default;
+	~EvolutionObserver() = default;
+	virtual void update(GAEngine const & engine) = 0;
+};
 
 class GAEngine
 {
 public:
-	class EvolutionObserver
-	{
-	public:
-		EvolutionObserver()= default;
-		~EvolutionObserver()= default;
-		virtual void update(GAEngine const & engine) = 0;
-	};
+	
 
 	GAEngine();
 	GAEngine(GAEngine const &) = default;

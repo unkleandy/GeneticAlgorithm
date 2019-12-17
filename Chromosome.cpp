@@ -28,13 +28,10 @@ bool Chromosome::operator[](size_t pos) const
 
 void Chromosome::read(uint32_t & value, size_t from, size_t length) const
 {
-	int masque;
-	uint32_t tampon{ 0 };
+	size_t debutBit = length + from - 1;
 
-	for (size_t i{ length + from - 1}; i > from; --i) {
-		masque = 1;
-		masque <<= i;
-		value |= (mData[i] << i);
+	for (size_t i{ 0 }; i < length; ++i) {
+		value |= (mData[debutBit - i] << i);
 	}
 }
 

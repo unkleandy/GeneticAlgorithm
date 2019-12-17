@@ -4,7 +4,7 @@
 #define POPULATIONENGINE_H
 
 
-#include "population.h"
+#include "Population.h"
 #include "FitnessStatistics.h"
 class GAParameter;
 

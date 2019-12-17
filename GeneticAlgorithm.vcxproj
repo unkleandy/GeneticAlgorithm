@@ -176,7 +176,7 @@
     <ClInclude Include="MutationByChromosome.h" />
     <ClInclude Include="MutationStrategy.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="population.h" />
+    <ClInclude Include="Population.h" />
     <ClInclude Include="PopulationEngine.h" />
     <ClInclude Include="RandomUtil.h" />
     <ClInclude Include="Rectangle.h" />

@@ -4,14 +4,22 @@
 
 #include "vector"
 #include "fitness_t.h"
+#include "GAParameters.h"
 #include "Solution.h"
-
+#include <algorithm>
 
 class Population
 {
 public:
 	Population();
 	~Population();
+
+
+	struct fitness_comparator {
+		inline bool operator()(Solution * s1, Solution * s2) {
+			return(s1->fitness() < s2->fitness());
+		}
+	};
 
 	//Retourne la taille de la population.
 	size_t size() const;
@@ -43,9 +51,8 @@ public:
 	void swap(Population & other);
 
 private:
-	std::vector<Solution*> mSolution;
+	std::vector<Solution*> mSolutions;
 	void quicksort(std::vector<Solution*> solutions, int left, int right);
 };
 
 #endif //POPULATION_H
-

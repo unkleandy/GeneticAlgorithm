@@ -191,14 +191,14 @@
     <ClInclude Include="PopulationEngine.h">
       <Filter>Fichiers d%27en-tête\Francis</Filter>
     </ClInclude>
-    <ClInclude Include="population.h">
-      <Filter>Fichiers d%27en-tête\Francis</Filter>
-    </ClInclude>
     <ClInclude Include="Chromosome.h">
       <Filter>Fichiers d%27en-tête\Etienne</Filter>
     </ClInclude>
     <ClInclude Include="GAEngine.h">
       <Filter>Fichiers d%27en-tête\Dre</Filter>
+    </ClInclude>
+    <ClInclude Include="Population.h">
+      <Filter>Fichiers d%27en-tête\Francis</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
