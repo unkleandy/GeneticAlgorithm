@@ -37,6 +37,6 @@ release/
 # Debug directory
 debug/
 
-*.vcxproj.filters
 *.vcxproj
+*vcxproj.*
 
