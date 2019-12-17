@@ -44,6 +44,14 @@ int main()
 	//	}
 	//}
 
+	Rectangle rectangle;
+	Canvas canvas(rectangle, 0);
+	CircleSolution cercle(canvas);
+	cercle.randomize();
+	cercle.decode();
+	cercle.encode();
+	cercle.decode();
+	
 
 
 	return 0;

@@ -5,9 +5,7 @@
 
 
 Canvas::Canvas(Rectangle const & rectangle, size_t obstacleCount)
-	:
-	mRect{ rectangle }
-
+	: mRect{ rectangle }
 {
 	set(Rectangle(0, 0, 300, 200), 20);
 	mObstacles.resize(obstacleCount);
