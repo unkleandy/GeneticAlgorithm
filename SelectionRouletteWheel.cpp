@@ -15,9 +15,9 @@ void SelectionRouletteWheel::prepare(Population const & population)
 {
 	mRankWeight.resize(population.size());
 	fitness_t fitness_sum = 0;
-	for (int i{}; i < population.size(); ++i)
+	for (size_t i{}; i < population.size(); ++i)
 	{
-		fitness_sum += population[i].fitness;
+		fitness_sum += population[i].fitness();
 		mRankWeight[i] = fitness_sum;
 	}
 

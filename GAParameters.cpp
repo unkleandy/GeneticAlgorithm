@@ -1,4 +1,5 @@
 #include "GAParameters.h"
+#include "GAEngine.h"
 #include "MutationStrategy.h"
 #include "SelectionStrategy.h"
 #include "SelectionRouletteWheel.h"
@@ -50,7 +51,7 @@ size_t GAParameters::ellitismSize() const
 	return size_t();
 }
 
-size_t GAParameters::concurrentPopulationCount()
+size_t GAParameters::concurrentPopulationCount() const
 {
 	return mEllitismSize;
 }
@@ -60,17 +61,18 @@ size_t GAParameters::maximumGenerationCount() const
 	return mMaximumGenerationCount;
 }
 
-SelectionStrategy & GAParameters::selectionStrategy()
+
+SelectionStrategy & GAParameters::selectionStrategy() const
 {
 	return * mSelectionStrategy;
 }
 
-CrossoverStrategy & GAParameters::crossoverStrategy()
+CrossoverStrategy & GAParameters::crossoverStrategy() const
 {
 	return * mCrossoverStrategy;
 }
 
-MutationStrategy & GAParameters::mutationStrategy()
+MutationStrategy & GAParameters::mutationStrategy() const
 {
 	return *mMutationStrategy;
 }

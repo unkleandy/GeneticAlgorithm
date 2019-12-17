@@ -3,7 +3,7 @@
 #define _GA_PARAMETERS_H_
 
 
-#include "GAEngine.h"
+class GAEngine;
 class SelectionStrategy;
 class CrossoverStrategy;
 class MutationStrategy;
@@ -24,12 +24,12 @@ public:
 
 	size_t populationSize() const;
 	size_t ellitismSize() const;
-	size_t concurrentPopulationCount();
+	size_t concurrentPopulationCount() const;
 	size_t maximumGenerationCount() const;
 
-	SelectionStrategy & selectionStrategy();
-	CrossoverStrategy & crossoverStrategy();
-	MutationStrategy & mutationStrategy();
+	SelectionStrategy & selectionStrategy()const;
+	CrossoverStrategy & crossoverStrategy()const;
+	MutationStrategy & mutationStrategy()const;
 	Solution const & solutionSample() const;
 
 	void setPopulationSize(size_t size);

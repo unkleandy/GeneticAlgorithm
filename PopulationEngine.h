@@ -1,9 +1,13 @@
 #pragma once
-#include "Population.h"
-#include "FitnessStatistics.h"
 
 #ifndef POPULATIONENGINE_H
 #define POPULATIONENGINE_H
+
+
+#include "population.h"
+#include "FitnessStatistics.h"
+class GAParameter;
+
 
 class PopulationEngine
 {

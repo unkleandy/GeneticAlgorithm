@@ -13,7 +13,7 @@ size_t Population::size() const{
 	return mSolution.size();
 }
 
-void Population::set(size_t size, Solution & const SolutionSample){
+void Population::set(size_t size, Solution const &  SolutionSample){
 }
 
 Solution & Population::operator[](size_t pos){

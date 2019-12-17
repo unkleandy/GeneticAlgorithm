@@ -1,4 +1,5 @@
 #include "PopulationEngine.h"
+#include "GAParameters.h"
 
 PopulationEngine::PopulationEngine(){
 }

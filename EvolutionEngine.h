@@ -15,6 +15,7 @@ public:
 	Population const & population() const;
 	void setup(GAParameters & parameters);
 	void evolveOneGeneration(GAParameters & parameters);
+	fitnessStatisticsOverTime const & fitnessStatistics() const;
 
 private:
 	size_t mCurrentGeneration;

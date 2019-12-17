@@ -14,7 +14,7 @@ public:
 	//setters
 	void setMutationRate(double mutationRate);
 	//getters
-	double mutationRate();
+	double mutationRate()const;
 	virtual void mutate(Solution & offspring) = 0;
 };
 

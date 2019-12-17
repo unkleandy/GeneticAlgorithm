@@ -45,9 +45,6 @@
     <ClCompile Include="CrossoverStrategy.cpp">
       <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
-    <ClCompile Include="EvolutionObserver.cpp">
-      <Filter>Fichiers sources\Dre</Filter>
-    </ClCompile>
     <ClCompile Include="EvolutionStatus.cpp">
       <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
@@ -62,9 +59,6 @@
     </ClCompile>
     <ClCompile Include="fitness_t.cpp">
       <Filter>Fichiers sources\ET</Filter>
-    </ClCompile>
-    <ClCompile Include="GAEngine.cpp">
-      <Filter>Fichiers sources\Francis</Filter>
     </ClCompile>
     <ClCompile Include="GAParameters.cpp">
       <Filter>Fichiers sources\Dre</Filter>
@@ -113,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>Fichiers sources\Frederic</Filter>
+    </ClCompile>
+    <ClCompile Include="GAEngine.cpp">
+      <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,11 +194,11 @@
     <ClInclude Include="population.h">
       <Filter>Fichiers d%27en-tête\Francis</Filter>
     </ClInclude>
-    <ClInclude Include="GAEngine.h">
-      <Filter>Fichiers d%27en-tête\Francis</Filter>
-    </ClInclude>
     <ClInclude Include="Chromosome.h">
       <Filter>Fichiers d%27en-tête\Etienne</Filter>
+    </ClInclude>
+    <ClInclude Include="GAEngine.h">
+      <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

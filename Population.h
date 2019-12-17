@@ -4,7 +4,7 @@
 
 #include "vector"
 #include "fitness_t.h"
-#include "GAParameters.h"
+#include "Solution.h"
 
 
 class Population
@@ -17,7 +17,7 @@ public:
 	size_t size() const;
 
 	//Change la taille de la population.
-	void set(size_t size, Solution & const SolutionSample);
+	void set(size_t size, Solution const &  SolutionSample);
 
 	Solution & operator[](size_t pos);
 

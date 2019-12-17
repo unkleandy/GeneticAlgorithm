@@ -139,7 +139,6 @@
     <ClCompile Include="Chromosome.cpp" />
     <ClCompile Include="CrossoverSinglePointByChromosome.cpp" />
     <ClCompile Include="CrossoverStrategy.cpp" />
-    <ClCompile Include="EvolutionObserver.cpp" />
     <ClCompile Include="EvolutionStatus.cpp" />
     <ClCompile Include="Fitness.cpp" />
     <ClCompile Include="fitness_t.cpp" />
