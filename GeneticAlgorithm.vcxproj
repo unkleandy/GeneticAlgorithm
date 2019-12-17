@@ -81,7 +81,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\dev\lib\x86\Debug\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>bg.lib;ga.lib;windows_console.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bg.lib;windows_console.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -139,6 +139,7 @@
     <ClCompile Include="Chromosome.cpp" />
     <ClCompile Include="CrossoverSinglePointByChromosome.cpp" />
     <ClCompile Include="CrossoverStrategy.cpp" />
+    <ClCompile Include="EvolutionEngine.cpp" />
     <ClCompile Include="EvolutionStatus.cpp" />
     <ClCompile Include="Fitness.cpp" />
     <ClCompile Include="fitness_t.cpp" />
@@ -157,14 +158,18 @@
     <ClCompile Include="ShapeObserver.cpp" />
     <ClCompile Include="ShapeOptimizer.cpp" />
     <ClCompile Include="ShapeRectangle.cpp" />
+    <ClCompile Include="ShapeSolution.cpp" />
     <ClCompile Include="ShapeTriangle.cpp" />
+    <ClCompile Include="Solution.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Chromosome.h" />
+    <ClInclude Include="CircleSolution.h" />
     <ClInclude Include="CrossoverSinglePointByChromosome.h" />
     <ClInclude Include="CrossoverStrategy.h" />
+    <ClInclude Include="EvolutionEngine.h" />
     <ClInclude Include="EvolutionObserver.h" />
     <ClInclude Include="EvolutionStatus.h" />
     <ClInclude Include="Fitness.h" />
@@ -180,6 +185,7 @@
     <ClInclude Include="PopulationEngine.h" />
     <ClInclude Include="RandomUtil.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectangleSolution.h" />
     <ClInclude Include="SelectionRouletteWheel.h" />
     <ClInclude Include="SelectionStrategy.h" />
     <ClInclude Include="Shape.h" />
@@ -189,6 +195,7 @@
     <ClInclude Include="ShapeRectangle.h" />
     <ClInclude Include="ShapeTriangle.h" />
     <ClInclude Include="Size.h" />
+    <ClInclude Include="Solution.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

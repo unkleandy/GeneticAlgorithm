@@ -10,17 +10,17 @@ class Shape
 public:
 	Shape();
 	~Shape();
-	/*
-	virtual bool isValid() const;
-	virtual void draw() const;
-	virtual double area() const;
-	virtual Rectangle boundingRect() const;
-	virtual bool contains(Point const & p) const;
-	virtual Shape * clone() const;
+
+	virtual bool isValid() const = 0;
+	virtual void draw() const = 0;
+	virtual double area() const = 0;
+	virtual Rectangle boundingRect() const = 0;
+	virtual bool contains(Point const & p) const = 0;
+	virtual Shape * clone() const = 0;
 
 
 private:
-*/
+
 };
 
 #endif // SHAPE_H

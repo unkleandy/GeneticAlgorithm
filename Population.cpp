@@ -3,80 +3,63 @@
 
 
 
-Population::Population(){
+Population::Population() {
 }
 
 
-Population::~Population(){
+Population::~Population() {
 }
 
-size_t Population::size() const{
+size_t Population::size() const {
 	return mSolutions.size();
 }
 
-void Population::set(size_t size, Solution const & SolutionSample){
-	for (int i{ 0 }; i < mSolutions.size(); ++i) {
+void Population::set(size_t size, Solution const & SolutionSample) {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
 		delete mSolutions[i];
 	}
-	
+
 	mSolutions.resize(size);
-	for (int i{ 0 }; i < mSolutions.size(); ++i) {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
 		mSolutions[i] = SolutionSample.clone();
 	}
 }
 
-Solution & Population::operator[](size_t pos){
+Solution & Population::operator[](size_t pos) {
 	return *mSolutions.at(pos);
 }
 
-Solution const & Population::operator[](size_t pos) const{
+Solution const & Population::operator[](size_t pos) const {
 	return *mSolutions.at(pos);
 }
 
-void Population::processFitness(){	
-	for (int i{ 0 }; i < mSolutions.size(); ++i) {
+void Population::processFitness() {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
 		mSolutions[i]->processFitness();
 	}
 }
 
-void Population::randomize(){
-	for (int i{ 0 }; i < size(); ++i) 
+void Population::randomize() {
+	for (size_t i{}; i < size(); ++i)
 		mSolutions[i]->randomize();
 }
 
-void Population::encode(){
-	for (int i{ 0 }; i < mSolutions.size(); ++i) {
+void Population::encode() {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
 		mSolutions[i]->encode();
 	}
 }
 
-void Population::decode(){
-	for (int i{ 0 }; i < mSolutions.size(); ++i) {
+void Population::decode() {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
 		mSolutions[i]->decode();
 	}
 }
 
-void Population::sort(){
+void Population::sort() {
 	std::sort(mSolutions.begin(), mSolutions.end(), fitness_comparator());
 }
 
-void Population::swap(Population & other){
+void Population::swap(Population & other) {
 	mSolutions.swap(other.mSolutions);
-}
-
-
-Chromosome const & Solution::chromosome() const{
-	return mChromosome;
-}
-
-Chromosome & Solution::chromosome(){
-	return mChromosome;
-}
-
-fitness_t Solution::fitness() const{
-	return mFitness;
-}
-
-void Solution::copy(Solution const & from)
-{
 }

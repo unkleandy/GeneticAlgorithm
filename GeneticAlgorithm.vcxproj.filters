@@ -111,6 +111,15 @@
     <ClCompile Include="GAEngine.cpp">
       <Filter>Fichiers sources\Dre</Filter>
     </ClCompile>
+    <ClCompile Include="ShapeSolution.cpp">
+      <Filter>Fichiers sources\ET</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution.cpp">
+      <Filter>Fichiers sources\ET</Filter>
+    </ClCompile>
+    <ClCompile Include="EvolutionEngine.cpp">
+      <Filter>Fichiers sources\Francis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CrossoverSinglePointByChromosome.h">
@@ -198,6 +207,18 @@
       <Filter>Fichiers d%27en-tête\Dre</Filter>
     </ClInclude>
     <ClInclude Include="Population.h">
+      <Filter>Fichiers d%27en-tête\Francis</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleSolution.h">
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleSolution.h">
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution.h">
+      <Filter>Fichiers d%27en-tête\Etienne</Filter>
+    </ClInclude>
+    <ClInclude Include="EvolutionEngine.h">
       <Filter>Fichiers d%27en-tête\Francis</Filter>
     </ClInclude>
   </ItemGroup>

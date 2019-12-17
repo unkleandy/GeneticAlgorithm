@@ -48,9 +48,7 @@ void Chromosome::write(uint32_t value, size_t from, size_t length)
 
 void Chromosome::flip(size_t pos)
 { 
-	//Besoin du mutation rate provenant de la classe MutationStrategy
-	double mutationRate{ 0 };
-	mData[pos] = RandomUtil::generateEvent(mutationRate);
+	mData[pos] = !mData[pos];
 }
 
 void Chromosome::randomize(double probability)

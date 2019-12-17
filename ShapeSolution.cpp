@@ -1,4 +1,5 @@
 #include "ShapeSolution.h"
+#include "ShapeCircle.h"
 
 
 ShapeSolution::ShapeSolution(Canvas const & canvas)
