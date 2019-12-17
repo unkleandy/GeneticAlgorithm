@@ -2,15 +2,10 @@
 
 
 
-SelectionStrategy::SelectionStrategy()
-{
-}
+SelectionStrategy::SelectionStrategy(){}
 
+SelectionStrategy::~SelectionStrategy() {}
 
-SelectionStrategy::~SelectionStrategy()
-{
-}
+void SelectionStrategy::prepare(Population const &) {}
 
-void SelectionStrategy::prepare(Population const &)
-{
-}
+Solution const & SelectionStrategy::select(Population const & population) { }

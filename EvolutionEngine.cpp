@@ -17,7 +17,12 @@ Population const & EvolutionEngine::population() const{
 	return mPopulationEngine.population();
 }
 
+fitnessStatisticsOverTime const & EvolutionEngine::fitnessStatistics() const{
+	return mFitnessStatisticsOverEpoch;
+}
+
 void EvolutionEngine::setup(GAParameters & parameters){
+
 }
 
 void EvolutionEngine::evolveOneGeneration(GAParameters & parameters){

@@ -1,14 +1,14 @@
 #pragma once
 #ifndef _CROSSOVERSTRATEGY_H_
 #define _CROSSOVERSTRATEGY_H_
-#include <Solution.h>
+#include "Solution.h"
 
 
 class CrossoverStrategy
 {
 public:
 
-	//virtual Solution breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring);
+	virtual Solution const & breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring) = 0;
 	CrossoverStrategy();
 	~CrossoverStrategy();
 };

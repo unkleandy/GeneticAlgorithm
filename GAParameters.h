@@ -4,6 +4,9 @@
 
 
 #include "GAEngine.h"
+#include "SelectionStrategy.h"
+#include "CrossOverStrategy.h"
+#include "MutationStrategy.h"
 class SelectionStrategy;
 class CrossoverStrategy;
 class MutationStrategy;
