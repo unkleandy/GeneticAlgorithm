@@ -43,6 +43,7 @@ void PopulationEngine::processOneOffspring(GAParameters & parameters, size_t pos
 }
 
 void PopulationEngine::finalizeCurrentEvolution(){
+	mNextPopulation.encode();
 	mNextPopulation.decode();
 	mNextPopulation.processFitness();
 	mNextPopulation.sort();

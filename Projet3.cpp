@@ -3,7 +3,6 @@
 #include "ShapeOptimizer.h"
 #include "ShapeCircle.h"
 #include "ShapeRectangle.h"
-#include "ShapeEquilateralTriangle.h"
 #include "ShapeDiamond.h"
 #include "ViewMenu.h"
 #include "ViewRuntime.h"

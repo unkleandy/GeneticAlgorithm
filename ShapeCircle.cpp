@@ -32,13 +32,11 @@ bool ShapeCircle::isValid() const {
 	return true;
 }
 
-void ShapeCircle::draw() const {
+void ShapeCircle::draw(windows_console::image & anImage) const {
 	using namespace windows_console;
-	image anImage;
-	csl >> anImage;
 	anImage << pen(dot, text_color(bright, red), background_color(dark, red))
 		<< circle(mCenter.x(), mCenter.y(), mRadius);
-	csl << anImage;
+
 }
 
 double ShapeCircle::area() const {

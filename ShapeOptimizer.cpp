@@ -4,17 +4,21 @@
 #include "CircleSolution.h"
 
 
-void ShapeObserver::update(GAEngine const & engine) {
+ShapeOptimizer::ShapeObserver::ShapeObserver(ShapeOptimizer & shapeOptimizer)
+	:
+	mShapeOptimizer{shapeOptimizer}
+{
+	
+}
+
+void ShapeOptimizer::ShapeObserver::update(GAEngine const & engine) {
 	mShapeOptimizer.update(engine);
 }
 
-void ShapeObserver::setOptimizer(ShapeOptimizer const & shapeOptimizer) 
-{
-	mShapeOptimizer = shapeOptimizer;
-}
 
 ShapeOptimizer::ShapeOptimizer(ViewMenu & viewMenu, ViewRuntime & viewRuntime)
 	:
+	mShapeObserver{ *this },
 	mViewMenu{viewMenu},
 	mViewRuntime{viewRuntime},
 	mCanvas{viewRuntime.canvas()}
@@ -58,11 +62,15 @@ void ShapeOptimizer::update(GAEngine const & engine) {
 }
 
 void ShapeOptimizer::drawPopulations() {
+	using namespace windows_console;
+	image  anImage;
+	csl >> anImage;
 	for (size_t index{ 0 }; index < mPopulationCount; ++index) {
 		for (size_t indexSolution{ 0 }; indexSolution < mParameters.populationSize();++indexSolution) {
-			static_cast<ShapeSolution const &>(mEngine.population(index)[indexSolution]).draw();
+			static_cast<ShapeSolution const &>(mEngine.population(index)[indexSolution]).draw(anImage);
 		}
 	}
+	csl << anImage;
 }
 
 void ShapeOptimizer::raiseObstacleCount() {

@@ -2,6 +2,7 @@
 #ifndef SHAPE_RECTANGLE_H
 #define SHAPE_RECTANGLE_H
 
+#include<console.h>
 #include<Rect2d.h>
 #include "Shape.h"
 
@@ -14,7 +15,7 @@ public:
 	~ShapeRectangle() = default;
 
 	bool isValid() const override; 
-	void draw() const override;
+	void draw(windows_console::image & anImage) const override;
 	double area() const override;
 	Rectangle boundingRect() const override;
 	bool contains(Point const & p) const override;   

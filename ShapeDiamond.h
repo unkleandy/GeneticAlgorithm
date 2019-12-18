@@ -2,6 +2,7 @@
 #ifndef SHAPE_DIAMOND_H
 #define SHAPE_DIAMOND_H
 
+#include <console.h>
 #include <Polygon2d.h>
 #include "Shape.h"
 #include "Point.h"
@@ -31,7 +32,7 @@ public:
 	int orientation();
 	Point center();
 	bool isValid() const override;
-	void draw() const override;
+	void draw(windows_console::image & anImage) const override;
 	double area() const override;
 	Rectangle boundingRect() const override;
 	bool contains(Point const & p) const override;
