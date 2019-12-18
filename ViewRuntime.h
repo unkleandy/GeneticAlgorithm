@@ -14,7 +14,9 @@ public:
 	ViewRuntime();
 	~ViewRuntime() = default;
 	void setShapeOptimizer(ShapeOptimizer * shapeOptimizer);
-	void run();
+	void setupWindow();
+	void update();
+	Canvas const & canvas() const;
 
 
 private:
@@ -37,7 +39,6 @@ private:
 	int consoleWidth{ 300 };
 	int consoleHeight{ 200 };
 	Canvas mCanvas;
-	bool mExitRuntime{ false };
 	bool mRandomizeObstacles{ true };
 	keyBinding_ec mInputKey;
 	solutionDisplay_ec mSolutionDisplay;
@@ -46,7 +47,6 @@ private:
 	windows_console::font::size_type mRunningFontSize{ 3 };
 	windows_console::font::ratio_type mRunningFontRatio{ 1.0 };
 	ShapeOptimizer * mShapeOptimizer;
-	void setupWindow();
 	void readInput();
 	void clearScreen();
 	void cycleSolutionDisplay();

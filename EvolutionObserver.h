@@ -1,8 +1,8 @@
 #pragma once
-class EvolutionObserver
-{
-public:
-	EvolutionObserver() = default;
-	~EvolutionObserver() = default;
-};
+#ifndef _EVOLUTIONOBSERVER_H_
+#define _EVOLUTIONOBSERVER_H_
+//#include "GAEngine.h"
 
+
+
+#endif // !_EVOLUTIONOBSERVER_H_

@@ -1,9 +1,27 @@
 #include "ShapeOptimizer.h"
+#include "Solution.h"
+#include "RectangleSolution.h"
+#include "CircleSolution.h"
+
+
+ShapeOptimizer::ShapeObserver::ShapeObserver(ShapeOptimizer & shapeOptimizer)
+	:
+	mShapeOptimizer{shapeOptimizer}
+{
+	
+}
+
+void ShapeOptimizer::ShapeObserver::update(GAEngine const & engine) {
+	mShapeOptimizer.update(engine);
+}
+
 
 ShapeOptimizer::ShapeOptimizer(ViewMenu & viewMenu, ViewRuntime & viewRuntime)
 	:
+	mShapeObserver{ *this },
 	mViewMenu{viewMenu},
-	mViewRuntime{viewRuntime}
+	mViewRuntime{viewRuntime},
+	mCanvas{viewRuntime.canvas()}
 {
 }
 
@@ -12,9 +30,47 @@ void ShapeOptimizer::run() {
 		mStartingObstacleCount = mObstacleCount;
 		mViewMenu.run();
 		if (!mQuitProgram) { // Possible de pas répéter 2x la meme condition ? 
-			mViewRuntime.run();
+			mViewRuntime.setupWindow();
+			mParameters.setToDefault();
+			mParameters.setConcurrentPopulationCount(mPopulationCount);
+			mParameters.setSolutionSample(new CircleSolution(mCanvas));
+			mEngine.registerObserver(mShapeObserver);
+			mEngine.evolveUntilConvergence(mParameters);
 		}
 	}
+}
+
+void ShapeOptimizer::loadSolution() {
+	Solution * solutionPtr{};
+	switch (mCurrentShape) {
+	case  availableShapes_ec::Rectangle:
+		solutionPtr = new RectangleSolution(mCanvas);
+		break;
+	case  availableShapes_ec::Circle:
+		solutionPtr = new RectangleSolution(mCanvas);
+		break;
+	}
+	mParameters.setSolutionSample(solutionPtr);
+}
+
+void ShapeOptimizer::update(GAEngine const & engine) {
+	mViewRuntime.update();
+	if (mExitRuntime) {
+		mEngine.stopEvolution();
+		mExitRuntime = false;
+	}
+}
+
+void ShapeOptimizer::drawPopulations() {
+	using namespace windows_console;
+	image  anImage;
+	csl >> anImage;
+	for (size_t index{ 0 }; index < mPopulationCount; ++index) {
+		for (size_t indexSolution{ 0 }; indexSolution < mParameters.populationSize();++indexSolution) {
+			static_cast<ShapeSolution const &>(mEngine.population(index)[indexSolution]).draw(anImage);
+		}
+	}
+	csl << anImage;
 }
 
 void ShapeOptimizer::raiseObstacleCount() {
@@ -61,6 +117,10 @@ void ShapeOptimizer::setQuitProgram(bool quit) {
 	mQuitProgram = quit;
 }
 
+void ShapeOptimizer::setExitRuntime(bool answer) {
+	mExitRuntime = answer;
+}
+
 size_t ShapeOptimizer::obstacleCount() {
 	return mObstacleCount;
 }
@@ -83,6 +143,10 @@ ShapeOptimizer::availableShapes_ec ShapeOptimizer::currentShape() {
 
 bool ShapeOptimizer::quitProgram() {
 	return mQuitProgram;
+}
+
+bool ShapeOptimizer::exitRuntime() {
+	return mExitRuntime;
 }
 
 // Aurait également pu être fait avec un map
@@ -112,8 +176,6 @@ std::string ShapeOptimizer::resetRequestToString() {
 	case false:
 		return "non";
 		break;
-	default:
-		return "";
-		break;
 	}
+	return "";
 }

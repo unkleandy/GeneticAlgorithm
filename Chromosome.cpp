@@ -29,7 +29,7 @@ bool Chromosome::operator[](size_t pos) const
 void Chromosome::read(uint32_t & value, size_t from, size_t length) const
 {
 	size_t debutBit = length + from - 1;
-	value = 0;
+
 	for (size_t i{ 0 }; i < length; ++i) {
 		value |= (mData[debutBit - i] << i);
 	}
@@ -48,9 +48,7 @@ void Chromosome::write(uint32_t value, size_t from, size_t length)
 
 void Chromosome::flip(size_t pos)
 { 
-	//Besoin du mutation rate provenant de la classe MutationStrategy
-	double mutationRate{ 0 };
-	mData[pos] = RandomUtil::generateEvent(mutationRate);
+	mData[pos] = !mData[pos];
 }
 
 void Chromosome::randomize(double probability)

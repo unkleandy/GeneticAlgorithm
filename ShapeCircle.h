@@ -2,6 +2,7 @@
 #ifndef SHAPE_CIRCLE_H
 #define SHAPE_CIRCLE_H
 
+#include <console.h>
 #include "Point.h"
 #include "Rectangle.h"
 #include "Shape.h"
@@ -17,7 +18,7 @@ public:
 	void setRadius(double radius);
 	void set(Point const & center, double radius);
 	bool isValid() const override; // pas mRadius = 0, 
-	void draw() const override;
+	void draw(windows_console::image & anImage) const override;
 	double area() const override;
 	Rectangle boundingRect() const override;
 	bool contains(Point const & p) const override;   // utiliser distance2 < mRadius * mRadius
@@ -26,8 +27,8 @@ public:
 
 
 private:
-	Point mCenter;
-	double mRadius;
+	Point mCenter{Point(10,10)};
+	double mRadius{1};
 
 
 };

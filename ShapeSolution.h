@@ -2,7 +2,7 @@
 #ifndef SHAPESOLUTION_H
 #define SHAPESOLUTION_H
 
-
+#include <console.h>
 #include "Solution.h"
 #include "Canvas.h"
 #include "Shape.h"
@@ -14,7 +14,7 @@ public:
 	ShapeSolution(Canvas const & canvas);
 	~ShapeSolution() override = default;
 
-	void draw() const;
+	void draw(windows_console::image & anImage) const;
 	void processFitness() override;
 	bool isInsideCanvas() const;
 	bool isObstaclesIntersect() const;
