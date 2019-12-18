@@ -46,6 +46,10 @@ void ViewRuntime::update() {
 
 }
 
+Canvas const & ViewRuntime::canvas() const {
+	return mCanvas;
+}
+
 void ViewRuntime::clearScreen() {
 	using namespace windows_console;
 	csl << mBlankImage;

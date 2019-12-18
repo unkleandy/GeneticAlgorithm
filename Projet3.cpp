@@ -4,6 +4,7 @@
 #include "ShapeCircle.h"
 #include "ShapeRectangle.h"
 #include "ShapeEquilateralTriangle.h"
+#include "ShapeDiamond.h"
 #include "ViewMenu.h"
 #include "ViewRuntime.h"
 #include "Point.h"
@@ -28,15 +29,15 @@ int main() {
 	
 
 	//ViewRuntime viewRuntime;
-	//ShapeEquilateralTriangle aTriangle;
-	//Point bottomLeft(20.0, 40);
+	//ShapeDiamond aDiamond;
+	//Point center(40.0, 40);
 
 	//Point ptAtester(25,30);
-	//aTriangle.set(bottomLeft,10);
+	//aDiamond.set(20,20,center,0);
 
-	////aTriangle.transform(20, 40, 30, 400);
-	//aTriangle.rotate(120);
-	//aTriangle.draw();
+
+
+	//aDiamond.draw();
 	//double area = aTriangle.area();
 	//Rectangle boundingRect = aTriangle.boundingRect();
 	//bool inside = aTriangle.contains(ptAtester);

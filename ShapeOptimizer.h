@@ -4,14 +4,29 @@
 
 #include "GAEngine.h"
 #include "Canvas.h"
-#include "ShapeObserver.h"
 #include "ShapeOptimizer.h"
 #include "GAParameters.h"
 #include "ViewMenu.h"
 #include "ViewRuntime.h"
+#include "EvolutionObserver.h"
+
+
+
+class ShapeOptimizer;
+class ShapeObserver : public EvolutionObserver{
+private:
+	ShapeOptimizer mShapeOptimizer;
+public:
+	ShapeObserver() = default;
+	~ShapeObserver() = default;
+	void update(GAEngine const & engine) override;
+	void setOptimizer(ShapeOptimizer const & shapeOptimizer);
+};
+
 
 class ViewMenu;
 class ViewRuntime;
+class ShapeObserver;
 class ShapeOptimizer {
 
 private:
@@ -33,6 +48,7 @@ private:
 	bool mObstacleCountChanged{ false };
 	bool mObstacleResetRequested{ false };
 	size_t mPopulationCount{ 1 };
+	ShapeObserver mShapeObserver;
 	availableShapes_ec mCurrentShape{ availableShapes_ec::Rectangle };
 	bool mQuitProgram{ false };
 	bool mExitRuntime{ false };

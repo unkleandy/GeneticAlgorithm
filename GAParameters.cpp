@@ -13,7 +13,6 @@ GAParameters::GAParameters()
 {
 }
 
-
 GAParameters::~GAParameters()
 {
 	clearAll();

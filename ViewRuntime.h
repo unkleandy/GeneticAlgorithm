@@ -16,6 +16,7 @@ public:
 	void setShapeOptimizer(ShapeOptimizer * shapeOptimizer);
 	void setupWindow();
 	void update();
+	Canvas const & canvas() const;
 
 
 private:

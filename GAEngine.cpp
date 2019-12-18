@@ -39,7 +39,9 @@ void GAEngine::evolveUntilConvergence(GAParameters & parameters)
 	while (currentGeneration() < parameters.maximumGenerationCount() && mEvolutionStatus == InProcess)
 	{
 		for (EvolutionEngine  & ee : mEvolutionEngines) {
+
 			ee.evolveOneGeneration(parameters);
+			
 		}
 		updateObservers();
 	}

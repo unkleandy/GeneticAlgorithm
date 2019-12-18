@@ -1,37 +1,42 @@
 #include <console.h>
 #include "ShapeDiamond.h"
 #include "Rectangle.h"
-
-
-ShapeDiamond::ShapeDiamond() {
-	mVertices.resize(3);
-}
-
 /*
-void ShapeDiamond::set(double a, double b, Point center = Point(0.0, 0.0), double orientationDegrees = 0.0) {
+void ShapeDiamond::set(int x, int y, Point center , int orientationDegrees ) {
 	mDiamond.buildDiamond(x, y, center, orientationDegrees);
-	mSideLength = sideLength;
-	mVertices[0] = bottomLeft;
-	mVertices[1] = Point(bottomLeft.x() + sideLength, bottomLeft.y()); // bottom right
-	mVertices[2] = Point(bottomLeft.x() + (sideLength / 2), bottomLeft.y() - triangleHeight()); // top
-	mDiamond.addVertex(mVertices[0]);
-	mDiamond.addVertex(mVertices[1]);
-	mDiamond.addVertex(mVertices[2]);
-}
-*/
-
-size_t ShapeDiamond::triangleHeight() {
-	return round(mSideLength * (sqrt(3) / 2));
 }
 
-void ShapeDiamond::rotate(size_t orientationDegrees) {
-	mDiamond.rotate(orientationDegrees);
+void ShapeDiamond::setX(int x) {
+	mX = x;
 }
 
-void ShapeDiamond::transform(size_t tX, size_t tY, size_t orientationDegrees, double relativeScale) {
-	mDiamond.transform(tX, tY, orientationDegrees, relativeScale);
+void ShapeDiamond::setY(int y) {
+	mY = y;
 }
 
+void ShapeDiamond::setOrientation(int orientation) {
+	mOrientation = orientation;
+}
+
+void ShapeDiamond::setCenter(Point center) {
+	mCenter = center;
+}
+
+int ShapeDiamond::x() {
+	return mX;
+}
+
+int ShapeDiamond::y() {
+	return mY;
+}
+
+int ShapeDiamond::orientation() {
+	return mOrientation;
+}
+
+Point ShapeDiamond::center() {
+	return mCenter;
+}
 
 bool ShapeDiamond::isValid() const {
 	return mDiamond.isValid();
@@ -41,10 +46,12 @@ void ShapeDiamond::draw() const {
 	using namespace windows_console;
 	image anImage;
 	csl >> anImage;
-	anImage << pen(dot, text_color(bright, red), background_color(dark, red))
-		<< line(mVertices[0].x(), mVertices[0].y(), mVertices[1].x(), mVertices[1].y())
-		<< line(mVertices[1].x(), mVertices[1].y(), mVertices[2].x(), mVertices[2].y())
-		<< line(mVertices[2].x(), mVertices[2].y(), mVertices[0].x(), mVertices[0].y());
+	anImage << pen(dot, text_color(bright, red), background_color(dark, red));
+	for (int index{ 0 }; index < mDiamond.size(); ++index) {
+		anImage << line(mDiamond[index].x(), mDiamond[index].y(), mDiamond[index+1].x(), mDiamond[index+1].y());
+	}
+	anImage << line(mDiamond[mDiamond.size()-1].x(), mDiamond[mDiamond.size() - 1].y(), mDiamond[0].x(), mDiamond[0].y());
+
 	csl << anImage;
 }
 
@@ -61,6 +68,6 @@ bool ShapeDiamond::contains(Point const & p) const {
 }
 
 // Shape * ShapeDiamond::clone() const {}
-
+*/
 
 

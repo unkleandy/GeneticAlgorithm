@@ -4,10 +4,20 @@
 #include "CircleSolution.h"
 
 
+void ShapeObserver::update(GAEngine const & engine) {
+	mShapeOptimizer.update(engine);
+}
+
+void ShapeObserver::setOptimizer(ShapeOptimizer const & shapeOptimizer) 
+{
+	mShapeOptimizer = shapeOptimizer;
+}
+
 ShapeOptimizer::ShapeOptimizer(ViewMenu & viewMenu, ViewRuntime & viewRuntime)
 	:
 	mViewMenu{viewMenu},
-	mViewRuntime{viewRuntime}
+	mViewRuntime{viewRuntime},
+	mCanvas{viewRuntime.canvas()}
 {
 }
 
@@ -20,6 +30,7 @@ void ShapeOptimizer::run() {
 			mParameters.setToDefault();
 			mParameters.setConcurrentPopulationCount(mPopulationCount);
 			mParameters.setSolutionSample(new CircleSolution(mCanvas));
+			mEngine.registerObserver(mShapeObserver);
 			mEngine.evolveUntilConvergence(mParameters);
 		}
 	}
@@ -42,14 +53,13 @@ void ShapeOptimizer::update(GAEngine const & engine) {
 	mViewRuntime.update();
 	if (mExitRuntime) {
 		mEngine.stopEvolution();
+		mExitRuntime = false;
 	}
 }
 
 void ShapeOptimizer::drawPopulations() {
 	for (size_t index{ 0 }; index < mPopulationCount; ++index) {
 		for (size_t indexSolution{ 0 }; indexSolution < mParameters.populationSize();++indexSolution) {
-			//const Solution * tempPtr = &(mEngine.population(index)[indexSolution]);
-			//static_cast<ShapeSolution const *>(tempPtr)->draw();
 			static_cast<ShapeSolution const &>(mEngine.population(index)[indexSolution]).draw();
 		}
 	}

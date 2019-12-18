@@ -18,9 +18,9 @@ public:
 	fitnessStatisticsOverTime const & fitnessStatistics() const;
 
 private:
-	size_t mCurrentGeneration;
-	PopulationEngine mPopulationEngine;
-	fitnessStatisticsOverTime mFitnessStatisticsOverEpoch;
+	size_t mCurrentGeneration{};
+	PopulationEngine mPopulationEngine{};
+	fitnessStatisticsOverTime mFitnessStatisticsOverEpoch{};
 };
 
 #endif //EVOLUTIONENGINE_H
