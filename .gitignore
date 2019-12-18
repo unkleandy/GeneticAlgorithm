@@ -36,3 +36,7 @@ release/
 
 # Debug directory
 debug/
+
+*.vcxproj
+*vcxproj.*
+

@@ -26,7 +26,7 @@ int main() {
 
 	// Code utilisé pour tests, conservé pour références futures
 	
-	//ShapeOptimizer shOptimizer;
+
 	//ViewRuntime viewRuntime;
 	//ShapeEquilateralTriangle aTriangle;
 	//Point bottomLeft(20.0, 40);

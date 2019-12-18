@@ -26,8 +26,8 @@ public:
 
 
 private:
-	Point mCenter;
-	double mRadius;
+	Point mCenter{Point(10,10)};
+	double mRadius{1};
 
 
 };

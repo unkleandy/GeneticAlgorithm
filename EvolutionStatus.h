@@ -1,8 +1,13 @@
 #pragma once
-class EvolutionStatus
+#ifndef _EVOLUTIONSTATUS_H_
+#define _EVOLUTIONSTATUS_H_
+
+
+enum EvolutionStatus
 {
-public:
-	EvolutionStatus();
-	~EvolutionStatus();
+	NeverStarted,
+	InProcess,
+	SolutionAvailable
 };
 
+#endif // !_EVOLUTIONSTATUS_H_

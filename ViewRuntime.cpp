@@ -20,29 +20,30 @@ void ViewRuntime::setupWindow() {
 		<< cursor::invisible;
 	csl >> mImage;
 	csl >> mBlankImage;
+
+	assert(mCanvas.isValid());
+	if (mShapeOptimizer->checkIfObstacleCountChanged()) {
+		mCanvas.setObstacles(mShapeOptimizer->obstacleCount());
+		//mShapeOptimizer->setObstacleCountChanged(false);
+	}
+	if (mShapeOptimizer->obstacleResetRequested()) {
+		mCanvas.randomizeObstacles();
+		mShapeOptimizer->setObstacleResetRequested(false);
+	}
+
 }
 
 void ViewRuntime::setShapeOptimizer(ShapeOptimizer * shapeOptimizer) {
 	mShapeOptimizer = shapeOptimizer;
 }
 
-void ViewRuntime::run() {
-	setupWindow();
-	while(!mExitRuntime) {
-		assert(mCanvas.isValid());
-		if(mShapeOptimizer->checkIfObstacleCountChanged()) {
-			mCanvas.setObstacles(mShapeOptimizer->obstacleCount());
-			//mShapeOptimizer->setObstacleCountChanged(false);
-		}
-		if (mShapeOptimizer->obstacleResetRequested()) {
-			mCanvas.randomizeObstacles();
-			mShapeOptimizer->setObstacleResetRequested(false);
-		}
-		mCanvas.drawObstacles();
-		readInput();
-	}
+void ViewRuntime::update() {
 	clearScreen();
-	mExitRuntime = false;
+	mCanvas.drawObstacles();
+	readInput();
+	mShapeOptimizer->drawPopulations();
+
+
 }
 
 void ViewRuntime::clearScreen() {
@@ -59,7 +60,7 @@ void ViewRuntime::readInput() {
 		mInputKey = (keyBinding_ec)ce.next_key_event().ascii_value();
 		switch (mInputKey) {
 		case keyBinding_ec::Exit_Runtime:
-			mExitRuntime = true;
+			mShapeOptimizer->setExitRuntime(true);
 			break;
 		case keyBinding_ec::Cycle_Solution_Display:
 			void cycleSolutionDisplay();

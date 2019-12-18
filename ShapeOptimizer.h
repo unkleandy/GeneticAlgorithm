@@ -35,6 +35,7 @@ private:
 	size_t mPopulationCount{ 1 };
 	availableShapes_ec mCurrentShape{ availableShapes_ec::Rectangle };
 	bool mQuitProgram{ false };
+	bool mExitRuntime{ false };
 
 
 	//ShapeObserver mObserver;
@@ -43,7 +44,7 @@ private:
 	//size_t mConcurrentPopulationCount;
 	//size_t mMaximumGenerationCount;
 	//std::string mChosenShape;
-
+	void loadSolution();
 	void update(GAEngine const & engine);
 
 public:
@@ -57,6 +58,7 @@ public:
 	ShapeOptimizer(ViewMenu & viewMenu, ViewRuntime & viewRuntime);
 	~ShapeOptimizer() = default;
 	void run();
+	void drawPopulations();
 	void raiseObstacleCount();
 	void lowerObstacleCount();
 	bool checkIfObstacleCountChanged();
@@ -67,12 +69,14 @@ public:
 	void setPopulationCount(size_t newCount);
 	void cycleShape();
 	void setQuitProgram(bool quit);
+	void setExitRuntime(bool answer);
 	size_t obstacleCount();
 	size_t startingObstacleCount();
 	bool obstacleResetRequested();
 	size_t populationCount();
 	availableShapes_ec currentShape();
 	bool quitProgram();
+	bool exitRuntime();
 	std::string resetRequestToString();
 	std::string shapeToString();
 
