@@ -38,7 +38,6 @@ void ViewRuntime::setShapeOptimizer(ShapeOptimizer * shapeOptimizer) {
 }
 
 void ViewRuntime::update() {
-	clearScreen();
 	mCanvas.drawObstacles();
 	readInput();
 	mShapeOptimizer->drawPopulations();

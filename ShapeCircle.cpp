@@ -2,6 +2,16 @@
 #include<cmath>
 #include <console.h>
 #include "ShapeCircle.h"
+#include "RandomTools.h"
+
+
+//ShapeCircle::ShapeCircle()
+//	:
+//	mRadius{ (double)RandomTools::generateRandomNumber(0,100) },
+//	mCenter{Point(RandomTools::generateRandomNumber(mRadius,300-mRadius), RandomTools::generateRandomNumber(mRadius, 200 - mRadius))}
+//{
+//
+//}
 
 
 Point const & ShapeCircle::center() const {

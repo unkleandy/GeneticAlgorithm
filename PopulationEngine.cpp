@@ -18,6 +18,7 @@ void PopulationEngine::setup(GAParameters & parameters){
 	mCurrentPopulation.set(parameters.populationSize(), parameters.solutionSample());
 	mNextPopulation.set(parameters.populationSize(), parameters.solutionSample());
 	mFitnessStatistics.reset();
+	mCurrentPopulation.randomize();
 	mNextPopulation.randomize();
 	finalizeCurrentEvolution();
 }
@@ -28,7 +29,7 @@ void PopulationEngine::evolveOneGeneration(GAParameters & parameters){
 	for (size_t i{ parameters.ellitismSize() }; i < mCurrentPopulation.size()-1; ++i) {
 		processOneOffspring(parameters, i);
 	}
-	finalizeCurrentEvolution();
+ 	finalizeCurrentEvolution();
 }
 
 void PopulationEngine::processElitism(size_t elitismSize){
