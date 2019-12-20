@@ -18,6 +18,7 @@ public:
 	FitnessStatistics const & fitnessStatistics() const;
 	void setup(GAParameters & parameters);
 	void evolveOneGeneration(GAParameters & parameters);
+	void setPopulationColor(int index);
 
 
 private:

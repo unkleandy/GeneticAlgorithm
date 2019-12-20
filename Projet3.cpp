@@ -29,14 +29,17 @@ int main() {
 
 	//ViewRuntime viewRuntime;
 	//ShapeDiamond aDiamond;
-	//Point center(40.0, 40);
+	//Point center(17,17);
 
-	//Point ptAtester(25,30);
-	//aDiamond.set(20,20,center,0);
+	//aDiamond.set(15,5,center,0);
+	//
+	//using namespace windows_console;
+	//image  anImage;
+	//csl >> anImage;
 
+	//aDiamond.draw(anImage);
 
-
-	//aDiamond.draw();
+	//csl << anImage;
 	//double area = aTriangle.area();
 	//Rectangle boundingRect = aTriangle.boundingRect();
 	//bool inside = aTriangle.contains(ptAtester);

@@ -44,7 +44,7 @@ bool ShapeCircle::isValid() const {
 
 void ShapeCircle::draw(windows_console::image & anImage) const {
 	using namespace windows_console;
-	anImage << pen(dot, text_color(bright, red), background_color(dark, red))
+	anImage << pen(dot, text_color(mShapeBrightness, mShapeColor), background_color(mShapeBrightness, mShapeColor))
 		<< circle(mCenter.x(), mCenter.y(), mRadius);
 
 }
@@ -63,4 +63,12 @@ bool ShapeCircle::contains(Point const & p) const{
 		return true;
 	}
 	return false;
+}
+
+void ShapeCircle::setShapeBrightness(windows_console::brightness_type aBrightness) {
+	mShapeBrightness = aBrightness;
+}
+
+void ShapeCircle::setShapeColor(windows_console::color_type aColor) {
+	mShapeColor = aColor;
 }

@@ -11,10 +11,6 @@
 #include "EvolutionObserver.h"
 
 
-
-
-
-
 class ViewMenu;
 class ViewRuntime;
 

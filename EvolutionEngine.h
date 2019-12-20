@@ -16,11 +16,13 @@ public:
 	void setup(GAParameters & parameters);
 	void evolveOneGeneration(GAParameters & parameters);
 	fitnessStatisticsOverTime const & fitnessStatistics() const;
+	void setPopulationColor(int index);
 
 private:
 	size_t mCurrentGeneration{};
 	PopulationEngine mPopulationEngine{};
 	fitnessStatisticsOverTime mFitnessStatisticsOverEpoch{};
+
 };
 
 #endif //EVOLUTIONENGINE_H

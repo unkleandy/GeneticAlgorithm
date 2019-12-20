@@ -3,6 +3,7 @@
 #define POPULATION_H
 
 #include "vector"
+#include "console.h"
 #include "fitness_t.h"
 #include "GAParameters.h"
 #include "Solution.h"
@@ -50,9 +51,12 @@ public:
 	//Bye bye les vieux, bonjour les jeunes.
 	void swap(Population & other);
 
+	void setPopulationColor(int index);
+
 private:
 	std::vector<Solution*> mSolutions;
-	void quicksort(std::vector<Solution*> solutions, int left, int right);
+	std::vector<windows_console::color_type> const & mColorTypes{ windows_console::color_type::red, windows_console::color_type::blue, windows_console::color_type::green,windows_console::color_type::yellow };
+	windows_console::color_type mPopulationColor{ windows_console::color_type::red};
 };
 
 #endif //POPULATION_H

@@ -22,7 +22,8 @@ public:
 	double area() const override;
 	Rectangle boundingRect() const override;
 	bool contains(Point const & p) const override;   // utiliser distance2 < mRadius * mRadius
-	// Shape * clone() const override;
+	void setShapeBrightness(windows_console::brightness_type aBrightness)override;
+	void setShapeColor(windows_console::color_type aColor)override;
 
 
 

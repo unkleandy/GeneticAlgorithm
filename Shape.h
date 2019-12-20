@@ -17,10 +17,14 @@ public:
 	virtual double area() const = 0;
 	virtual Rectangle boundingRect() const = 0 ;
 	virtual bool contains(Point const & p) const = 0;
-	//virtual Shape * clone() const = 0;
+	virtual void setShapeBrightness(windows_console::brightness_type aBrightness) = 0;
+	virtual void setShapeColor(windows_console::color_type aColor)=0;
 
 
-private:
+
+protected:
+	windows_console::brightness_type mShapeBrightness{ windows_console::brightness_type::dark};
+	windows_console::color_type mShapeColor{ windows_console::color_type::red};
 
 };
 

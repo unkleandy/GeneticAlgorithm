@@ -2,7 +2,7 @@
 #include "ShapeDiamond.h"
 #include "Rectangle.h"
 
-void ShapeDiamond::set(int x, int y, Point center, int orientationDegrees) {
+void ShapeDiamond::set(int x, int y, Point center , int orientationDegrees ) {
 	mDiamond.buildDiamond(x, y, center, orientationDegrees);
 }
 
@@ -44,11 +44,11 @@ bool ShapeDiamond::isValid() const {
 
 void ShapeDiamond::draw(windows_console::image & anImage) const {
 	using namespace windows_console;
-	anImage << pen(dot, text_color(bright, red), background_color(dark, red));
-	for (int index{ 0 }; index < mDiamond.size() - 1; ++index) {
-		anImage << line(mDiamond[index].x(), mDiamond[index].y(), mDiamond[index + 1].x(), mDiamond[index + 1].y());
+	anImage << pen(dot, text_color(mShapeBrightness, mShapeColor), background_color(mShapeBrightness, mShapeColor));
+	for (int index{ 0 }; index < mDiamond.size()-1; ++index) {
+		anImage << line(mDiamond[index].x(), mDiamond[index].y(), mDiamond[index+1].x(), mDiamond[index+1].y());
 	}
-	anImage << line(mDiamond[mDiamond.size() - 1].x(), mDiamond[mDiamond.size() - 1].y(), mDiamond[0].x(), mDiamond[0].y());
+	anImage << line(mDiamond[mDiamond.size()-1].x(), mDiamond[mDiamond.size() - 1].y(), mDiamond[0].x(), mDiamond[0].y());
 }
 
 double ShapeDiamond::area() const {
@@ -63,4 +63,13 @@ bool ShapeDiamond::contains(Point const & p) const {
 	return mDiamond.contained(p);
 }
 
-// Shape * ShapeDiamond::clone() const {}
+void ShapeDiamond::setShapeBrightness(windows_console::brightness_type aBrightness) {
+	mShapeBrightness = aBrightness;
+}
+
+void ShapeDiamond::setShapeColor(windows_console::color_type aColor) {
+	mShapeColor = aColor;
+}
+
+
+
