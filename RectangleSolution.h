@@ -25,6 +25,8 @@ private:
 	size_t mNbBitsY;
 	size_t mNbBitsWidth;
 	size_t mNbBitsHeight;
+	size_t mCanvasWidth;
+	size_t mCanvasHeight;
 };
 
 

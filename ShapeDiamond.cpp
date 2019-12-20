@@ -1,17 +1,17 @@
 #include <console.h>
 #include "ShapeDiamond.h"
 #include "Rectangle.h"
-/*
-void ShapeDiamond::set(int x, int y, Point center , int orientationDegrees ) {
+
+void ShapeDiamond::set(int x, int y, Point center, int orientationDegrees) {
 	mDiamond.buildDiamond(x, y, center, orientationDegrees);
 }
 
-void ShapeDiamond::setX(int x) {
-	mX = x;
+void ShapeDiamond::setHalfWidth(int halfWidth) {
+	mHalfWidth = halfWidth;
 }
 
-void ShapeDiamond::setY(int y) {
-	mY = y;
+void ShapeDiamond::setHalfHeight(int halfHeight) {
+	mHalfHeight = halfHeight;
 }
 
 void ShapeDiamond::setOrientation(int orientation) {
@@ -22,12 +22,12 @@ void ShapeDiamond::setCenter(Point center) {
 	mCenter = center;
 }
 
-int ShapeDiamond::x() {
-	return mX;
+int ShapeDiamond::halfWidth() {
+	return mHalfWidth;
 }
 
-int ShapeDiamond::y() {
-	return mY;
+int ShapeDiamond::halfHeight() {
+	return mHalfHeight;
 }
 
 int ShapeDiamond::orientation() {
@@ -42,17 +42,13 @@ bool ShapeDiamond::isValid() const {
 	return mDiamond.isValid();
 }
 
-void ShapeDiamond::draw() const {
+void ShapeDiamond::draw(windows_console::image & anImage) const {
 	using namespace windows_console;
-	image anImage;
-	csl >> anImage;
 	anImage << pen(dot, text_color(bright, red), background_color(dark, red));
-	for (int index{ 0 }; index < mDiamond.size(); ++index) {
-		anImage << line(mDiamond[index].x(), mDiamond[index].y(), mDiamond[index+1].x(), mDiamond[index+1].y());
+	for (int index{ 0 }; index < mDiamond.size() - 1; ++index) {
+		anImage << line(mDiamond[index].x(), mDiamond[index].y(), mDiamond[index + 1].x(), mDiamond[index + 1].y());
 	}
-	anImage << line(mDiamond[mDiamond.size()-1].x(), mDiamond[mDiamond.size() - 1].y(), mDiamond[0].x(), mDiamond[0].y());
-
-	csl << anImage;
+	anImage << line(mDiamond[mDiamond.size() - 1].x(), mDiamond[mDiamond.size() - 1].y(), mDiamond[0].x(), mDiamond[0].y());
 }
 
 double ShapeDiamond::area() const {
@@ -68,6 +64,3 @@ bool ShapeDiamond::contains(Point const & p) const {
 }
 
 // Shape * ShapeDiamond::clone() const {}
-*/
-
-

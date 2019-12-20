@@ -28,5 +28,4 @@ void EvolutionEngine::setup(GAParameters & parameters){
 
 void EvolutionEngine::evolveOneGeneration(GAParameters & parameters){
 	mPopulationEngine.evolveOneGeneration(parameters);
-	//patente
 }

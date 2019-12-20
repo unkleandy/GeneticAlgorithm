@@ -17,6 +17,7 @@ public:
 	void setupWindow();
 	void update();
 	Canvas const & canvas() const;
+	void clearScreen();
 
 
 private:
@@ -48,7 +49,6 @@ private:
 	windows_console::font::ratio_type mRunningFontRatio{ 1.0 };
 	ShapeOptimizer * mShapeOptimizer;
 	void readInput();
-	void clearScreen();
 	void cycleSolutionDisplay();
 
 

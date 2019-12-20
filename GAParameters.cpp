@@ -47,7 +47,7 @@ size_t GAParameters::populationSize() const
 
 size_t GAParameters::ellitismSize() const
 {
-	return size_t();
+	return mEllitismSize;
 }
 
 size_t GAParameters::concurrentPopulationCount() const
@@ -138,7 +138,7 @@ void GAParameters::clearAll()
 void GAParameters::setToDefault()
 {
 	mPopulationSize = 50;
-	mEllitismSize = 3;
+	mEllitismSize = 2;
 	mConcurrentPopulationCount = 1;
 	mMaximumGenerationCount = 150;
 	pDelete(mSolutionSample);
