@@ -30,7 +30,6 @@ void ViewRuntime::setupWindow() {
 		mCanvas.randomizeObstacles();
 		mShapeOptimizer->setObstacleResetRequested(false);
 	}
-
 }
 
 void ViewRuntime::setShapeOptimizer(ShapeOptimizer * shapeOptimizer) {
@@ -66,13 +65,11 @@ void ViewRuntime::readInput() {
 			mShapeOptimizer->setExitRuntime(true);
 			break;
 		case keyBinding_ec::Cycle_Solution_Display:
-			void cycleSolutionDisplay();
+			cycleSolutionDisplay();
 			break;
 		}
 		mInputKey = keyBinding_ec::None;
 	}
-	
-
 }
 
 void ViewRuntime::cycleSolutionDisplay() {

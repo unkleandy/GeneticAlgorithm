@@ -39,7 +39,7 @@ bool ShapeSolution::isInsideCanvas() const
 bool ShapeSolution::isObstaclesIntersect() const
 {
 
-	for (Point p : mCanvas.obstacles()) {
+	for (Point const & p : mCanvas.obstacles()) {
 
 		if (mShape->contains(p)) {
 

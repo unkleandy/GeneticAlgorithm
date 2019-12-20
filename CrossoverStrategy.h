@@ -1,7 +1,7 @@
 #pragma once
 #ifndef _CROSSOVERSTRATEGY_H_
 #define _CROSSOVERSTRATEGY_H_
-#include <Solution.h>
+#include "Solution.h"
 
 
 class CrossoverStrategy
