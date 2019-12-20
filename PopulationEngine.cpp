@@ -26,7 +26,7 @@ void PopulationEngine::setup(GAParameters & parameters){
 void PopulationEngine::evolveOneGeneration(GAParameters & parameters){
 	parameters.selectionStrategy().prepare(mCurrentPopulation);
 	processElitism(parameters.ellitismSize());
-	for (size_t i{ parameters.ellitismSize() }; i < mCurrentPopulation.size()-1; ++i) {
+	for (size_t i{ parameters.ellitismSize() }; i < mCurrentPopulation.size(); ++i) {
 		processOneOffspring(parameters, i);
 	}
  	finalizeCurrentEvolution();
