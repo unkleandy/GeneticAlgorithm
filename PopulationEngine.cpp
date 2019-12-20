@@ -34,6 +34,7 @@ void PopulationEngine::evolveOneGeneration(GAParameters & parameters){
 
 void PopulationEngine::setPopulationColor(int index) {
 	mCurrentPopulation.setPopulationColor(index);
+	mNextPopulation.setPopulationColor(index);
 }
 
 void PopulationEngine::processElitism(size_t elitismSize){

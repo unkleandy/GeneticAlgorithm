@@ -14,7 +14,7 @@ public:
 	ShapeSolution(Canvas const & canvas);
 	~ShapeSolution() override = default;
 
-	void draw(windows_console::image & anImage) const;
+	void draw(windows_console::image & anImage, windows_console::brightness_type  aBrightness, windows_console::color_type aColor) const;
 	void processFitness() override;
 	bool isInsideCanvas() const;
 	bool isObstaclesIntersect() const;

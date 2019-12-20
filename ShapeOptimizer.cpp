@@ -66,11 +66,15 @@ void ShapeOptimizer::update(GAEngine const & engine) {
 void ShapeOptimizer::drawPopulations() {
 	using namespace windows_console;
 	image  anImage;
-	//mViewRuntime.clearScreen();
-	//csl >> anImage;
-	for (size_t index{ 0 }; index < mPopulationCount; ++index) {
+	int indexBrightness = 1;
+	for (size_t indexPopulation{ 0 }; indexPopulation < mPopulationCount; ++indexPopulation) {
 		for (size_t indexSolution{ 0 }; indexSolution < mParameters.populationSize();++indexSolution) {
-			static_cast<ShapeSolution const &>(mEngine.population(index)[indexSolution]).draw(anImage);
+			if (indexSolution == mParameters.populationSize() - 1) {
+				indexBrightness = 0;
+			} else {
+				indexBrightness = 1;
+			}
+			static_cast<ShapeSolution const &>(mEngine.population(indexPopulation)[indexSolution]).draw(anImage, mBrightnessTypes[indexBrightness], mColorTypes[indexPopulation]);
 		}
 	}
 

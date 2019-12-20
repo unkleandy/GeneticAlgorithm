@@ -32,7 +32,7 @@ public:
 	int orientation();
 	Point center();
 	bool isValid() const override;
-	void draw(windows_console::image & anImage) const override;
+	void draw(windows_console::image & anImage, windows_console::brightness_type  aBrightness, windows_console::color_type aColor) const override;
 	double area() const override;
 	Rectangle boundingRect() const override;
 	bool contains(Point const & p) const override;
