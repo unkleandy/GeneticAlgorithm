@@ -35,9 +35,9 @@ void CircleSolution::encode()
 }
 
 void CircleSolution::decode()
-{	
+{
 	uint32_t X{}, Y{}, R{};
-	
+
 	mChromosome.read(X, 0, mNbBitsX);
 	mChromosome.read(Y, mNbBitsX, mNbBitsY);
 	mChromosome.read(R, mNbBitsX + mNbBitsY, mNbBitsRadius);

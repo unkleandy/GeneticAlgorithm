@@ -34,9 +34,8 @@ bool ShapeEquilateralTriangle::isValid() const {
 	return mTriangle.isValid();
 }
 
-void ShapeEquilateralTriangle::draw() const {
+void ShapeEquilateralTriangle::draw(windows_console::image & anImage) const {
 	using namespace windows_console;
-	image anImage;
 	csl >> anImage;
 	anImage << pen(dot, text_color(bright, red), background_color(dark, red))
 		<< line(mVertices[0].x(), mVertices[0].y(), mVertices[1].x(), mVertices[1].y())
