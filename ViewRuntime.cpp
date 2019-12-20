@@ -1,13 +1,10 @@
 #include "ViewRuntime.h"
 
-
-
-ViewRuntime::ViewRuntime()
+ViewRuntime::ViewRuntime() 
+: mCanvas(Rectangle(0, 0, 300, 200), (size_t)20)
 {
 	using namespace windows_console;
 	using namespace std;
-
-	setupWindow();
 	// mBlankImage est un buffer vide
 	mBlankImage << fill;
 }
@@ -23,19 +20,32 @@ void ViewRuntime::setupWindow() {
 		<< cursor::invisible;
 	csl >> mImage;
 	csl >> mBlankImage;
+
+	assert(mCanvas.isValid());
+	if (mShapeOptimizer->checkIfObstacleCountChanged()) {
+		mCanvas.setObstacles(mShapeOptimizer->obstacleCount());
+		//mShapeOptimizer->setObstacleCountChanged(false);
+	}
+	if (mShapeOptimizer->obstacleResetRequested()) {
+		mCanvas.randomizeObstacles();
+		mShapeOptimizer->setObstacleResetRequested(false);
+	}
 }
 
-void ViewRuntime::drawTest() {
-	using namespace windows_console;
-	mImage << pen(dot, text_color(bright, red), background_color(dark, red))
-		<< point(100, 100)
-		<< brush(dot, text_color(dark, blue), background_color(dark, blue))
-		<< rectangle(105, 105, 150, 150)
-		<< no_brush
-		<< circle(20, 20, 10)
-		<< pen(dot, text_color(bright, yellow), background_color(dark, red))
-		<< line(0, 0, 100, 100);
-	csl << mImage;
+void ViewRuntime::setShapeOptimizer(ShapeOptimizer * shapeOptimizer) {
+	mShapeOptimizer = shapeOptimizer;
+}
+
+void ViewRuntime::update() {
+	mCanvas.drawObstacles();
+	readInput();
+	mShapeOptimizer->drawPopulations();
+
+
+}
+
+Canvas const & ViewRuntime::canvas() const {
+	return mCanvas;
 }
 
 void ViewRuntime::clearScreen() {
@@ -46,18 +56,22 @@ void ViewRuntime::clearScreen() {
 void ViewRuntime::readInput() {
 	using namespace windows_console;
 	console_events ce;
-	while (true) {
-		ce.read_events();
-		while (ce.key_events_count()) {
-			switch (ce.next_key_event().ascii_value()) {
-			case ' ':
-				drawTest();
-				break;
-			case 'a':
-			case 'A':
-				clearScreen();
-				break;
-			}
+
+	ce.read_events();
+	if (ce.key_events_count()) { // Le if fonctionne aussi bien que le while
+		mInputKey = (keyBinding_ec)ce.next_key_event().ascii_value();
+		switch (mInputKey) {
+		case keyBinding_ec::Exit_Runtime:
+			mShapeOptimizer->setExitRuntime(true);
+			break;
+		case keyBinding_ec::Cycle_Solution_Display:
+			cycleSolutionDisplay();
+			break;
 		}
+		mInputKey = keyBinding_ec::None;
 	}
+}
+
+void ViewRuntime::cycleSolutionDisplay() {
+	mSolutionDisplay = (solutionDisplay_ec)(((size_t)mSolutionDisplay + 1) % (size_t)solutionDisplay_ec::_count_);
 }

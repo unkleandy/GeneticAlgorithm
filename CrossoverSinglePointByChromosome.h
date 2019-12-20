@@ -3,7 +3,9 @@
 #define _CROSSOVERSINGLEPOINTBYCHROMOSOME_H_
 #include "CrossoverStrategy.h"
 #include "Solution.h"
-
+#include "Chromosome.h"
+#include "RandomUtil.h"
+#include "RandomTools.h"
 
 class CrossoverSinglePointByChromosome : public CrossoverStrategy
 {

@@ -7,7 +7,7 @@ void MutationStrategy::setMutationRate(double mutationRate)
 	mMutationRate = mutationRate;
 }
 
-double MutationStrategy::mutationRate()
+double MutationStrategy::mutationRate() const
 {
 	return mMutationRate;
 }

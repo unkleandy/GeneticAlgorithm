@@ -3,6 +3,7 @@
 #define _MUTATIONBYCHROMOSOME_H_
 
 #include "MutationStrategy.h"
+#include "RandomTools.h"
 
 class MutationByChromosome : public MutationStrategy
 {

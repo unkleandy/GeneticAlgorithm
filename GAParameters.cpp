@@ -1,17 +1,18 @@
 #include "GAParameters.h"
+#include "GAEngine.h"
 #include "MutationStrategy.h"
 #include "SelectionStrategy.h"
 #include "SelectionRouletteWheel.h"
 #include "CrossoverSinglePointByChromosome.h"
 #include "MutationByChromosome.h"
 #include "ResetPointer.h"
+#include "MutationAggregator.h"
 
 
 
 GAParameters::GAParameters()
 {
 }
-
 
 GAParameters::~GAParameters()
 {
@@ -47,10 +48,10 @@ size_t GAParameters::populationSize() const
 
 size_t GAParameters::ellitismSize() const
 {
-	return size_t();
+	return mEllitismSize;
 }
 
-size_t GAParameters::concurrentPopulationCount()
+size_t GAParameters::concurrentPopulationCount() const
 {
 	return mEllitismSize;
 }
@@ -60,17 +61,18 @@ size_t GAParameters::maximumGenerationCount() const
 	return mMaximumGenerationCount;
 }
 
-SelectionStrategy & GAParameters::selectionStrategy()
+
+SelectionStrategy & GAParameters::selectionStrategy() const
 {
-	return  *mSelectionStrategy ;
+	return * mSelectionStrategy;
 }
 
-CrossoverStrategy & GAParameters::crossoverStrategy()
+CrossoverStrategy & GAParameters::crossoverStrategy() const
 {
 	return * mCrossoverStrategy;
 }
 
-MutationStrategy & GAParameters::mutationStrategy()
+MutationStrategy & GAParameters::mutationStrategy() const
 {
 	return *mMutationStrategy;
 }
@@ -120,7 +122,9 @@ void GAParameters::setMutationStrategy(MutationStrategy * strategy)
 
 void GAParameters::setSolutionSample(Solution * solution)
 {
-	delete (mSolutionSample);
+	if (mSolutionSample != nullptr) {
+		delete (mSolutionSample);
+	}
 	mSolutionSample = solution;
 }
 
@@ -135,11 +139,11 @@ void GAParameters::clearAll()
 void GAParameters::setToDefault()
 {
 	mPopulationSize = 50;
-	mEllitismSize = 3;
+	mEllitismSize = 2;
 	mConcurrentPopulationCount = 1;
 	mMaximumGenerationCount = 150;
 	pDelete(mSolutionSample);
 	setSelectionStrategy(new SelectionRouletteWheel());
 	setCrossoverStrategy(new CrossoverSinglePointByChromosome());
-	setMutationStrategy(new MutationByChromosome());
+	setMutationStrategy(new MutationAggregator());
 }

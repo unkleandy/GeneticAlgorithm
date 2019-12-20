@@ -1,0 +1,35 @@
+#pragma once
+#ifndef CIRCLESOLUTION_H
+#define CIRCLESOLUTION_H
+
+
+#include "Solution.h"
+#include "ShapeSolution.h"
+#include "ShapeCircle.h"
+
+
+class CircleSolution : public ShapeSolution
+{
+public:
+	CircleSolution(Canvas const & canvas);
+	~CircleSolution() override = default;
+
+	void randomize() override;
+	void encode() override;
+	void decode() override;
+	void copy(Solution const & from) override;
+	CircleSolution * clone() const override;
+	size_t const & nbBitsX();
+	size_t const & nbBitsY();
+	size_t const & nbBitsRadius();
+
+
+private:
+	ShapeCircle mCircle;
+	size_t mNbBitsX;
+	size_t mNbBitsY;
+	size_t mNbBitsRadius;
+};
+
+
+#endif // !CIRCLESOLUTION_H

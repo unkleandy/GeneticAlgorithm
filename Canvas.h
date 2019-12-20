@@ -11,10 +11,11 @@ class Canvas
 {
 	
 public:
-	Canvas();
-	~Canvas();
+	Canvas() = default;
+	Canvas(Rectangle const & rectangle, size_t obstacleCount);
+	~Canvas() = default;
 
-	/*
+	
 
 	bool isValid() const;
 	Rectangle const & rectangle() const;
@@ -22,15 +23,21 @@ public:
 	void set(Rectangle const & rectangle, size_t obstacleCount);
 	void setObstacles(size_t obstacleCount);
 	void randomizeObstacles();
-	void drawBackground() const;
+	// void drawBackground() const;
 	void drawObstacles() const;
 
 
 
 private:
 	Rectangle mRect;
+	size_t mObstacleCount;
 	std::vector<Point> mObstacles;
-	*/
+
+	double generateRandomObstacleX();
+	double generateRandomObstacleY();
+	void generateRandomObstacle(Point & p);
+
+	
 };
 
 

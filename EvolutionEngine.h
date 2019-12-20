@@ -13,14 +13,14 @@ public:
 
 	size_t currentGeneration() const;
 	Population const & population() const;
-	fitnessStatisticsOverTime const & fitnessStatistics() const;
 	void setup(GAParameters & parameters);
 	void evolveOneGeneration(GAParameters & parameters);
+	fitnessStatisticsOverTime const & fitnessStatistics() const;
 
 private:
-	size_t mCurrentGeneration;
-	PopulationEngine mPopulationEngine;
-	fitnessStatisticsOverTime mFitnessStatisticsOverEpoch;
+	size_t mCurrentGeneration{};
+	PopulationEngine mPopulationEngine{};
+	fitnessStatisticsOverTime mFitnessStatisticsOverEpoch{};
 };
 
 #endif //EVOLUTIONENGINE_H

@@ -56,4 +56,3 @@ private:
 };
 
 #endif //POPULATION_H
-
