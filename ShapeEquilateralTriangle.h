@@ -23,7 +23,7 @@ public:
 	void rotate(size_t orientationDegrees);
 	void transform(size_t tX, size_t tY, size_t orientationDegrees, double relativeScale);
 	bool isValid() const override;
-	void draw() const override;
+	void draw(windows_console::image & anImage) const override;
 	double area() const override;
 	Rectangle boundingRect() const override;
 	bool contains(Point const & p) const override;

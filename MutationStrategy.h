@@ -2,7 +2,7 @@
 #ifndef _MUTATIONSTRATEGY_H_
 #define _MUTATIONSTRATEGY_H_
 
-#include <Solution.h>
+#include "Solution.h"
 
 class MutationStrategy
 {
