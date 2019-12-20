@@ -1,40 +1,43 @@
 #include <cmath>
 
-#include "CircleSolution.h"
+#include "DiamondSolution.h"
 #include "Canvas.h"
 #include "RandomTools.h"
+
 //
-//
-//CircleSolution::CircleSolution(Canvas const & canvas)
+//DiamondSolution::DiamondSolution(Canvas const & canvas)
 //	: ShapeSolution(canvas)
 //{
-//	mShape = &mCircle;
+//	mShape = & mDiamond;
 //	size_t canvasWidth = static_cast<size_t>(mCanvas.rectangle().size().width());
 //	size_t canvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
-//	mNbBitsX = static_cast<size_t>(ceil(log2(canvasWidth)));
-//	mNbBitsY = static_cast<size_t>(ceil(log2(canvasHeight)));
-//	mNbBitsRadius = static_cast<size_t>(ceil(log2((std::min(canvasWidth, canvasHeight) / 2.0) - 1.0)));
-//	mChromosome.resize(mNbBitsX + mNbBitsY + mNbBitsRadius);
+//	mNbBitsHalfWidth = static_cast<size_t>(ceil(log2(canvasWidth)));
+//	mNbBitsHalfHeight = static_cast<size_t>(ceil(log2(canvasHeight)));
+//	mNbBitsCenter = static_cast<size_t>(ceil(log2((std::min(canvasWidth, canvasHeight) / 2.0) - 1.0)));
+//	mNbBitsOrientation = 
+//	mChromosome.resize(mNbBitsHalfWidth + mNbBitsHalfHeight + mNbBitsCenter + mNbBitsOrientation);
 //}
 //
-//void CircleSolution::randomize()
+//void DiamondSolution::randomize()
 //{
 //	size_t canvasWidth = static_cast<size_t>(mCanvas.rectangle().size().width());
 //	size_t canvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
-//	mCircle.setRadius(RandomTools::generateRandomNumber(0, canvasHeight / 2));
-//	mCircle.setCenter(Point(RandomTools::generateRandomNumber(mCircle.radius(), canvasWidth - mCircle.radius()), RandomTools::generateRandomNumber(mCircle.radius(), canvasHeight - mCircle.radius())));
+//	mDiamond.setHalfWidth(RandomTools::generateRandomNumber(0, canvasWidth / 2));
+//	mDiamond.setHalfWidth(RandomTools::generateRandomNumber(0, canvasHeight / 2));
+//	mDiamond.setOrientation(RandomTools::generateRandomNumber(0, 360));
+//	mDiamond.setCenter(Point(RandomTools::generateRandomNumber(mDiamond.halfWidth(), canvasWidth - mDiamond.halfWidth()), RandomTools::generateRandomNumber(mDiamond.halfHeight(), canvasWidth - mDiamond.halfHeight())));
 //	//mChromosome.randomize();
 //	//decode();
 //}
 //
-//void CircleSolution::encode()
+//void DiamondSolution::encode()
 //{
-//	mChromosome.write(uint32_t(mCircle.center().x()), 0, mNbBitsX);
-//	mChromosome.write(uint32_t(mCircle.center().y()), mNbBitsX, mNbBitsY);
-//	mChromosome.write(uint32_t(mCircle.radius()), mNbBitsX + mNbBitsY, mNbBitsRadius);
+//	mChromosome.write(uint32_t(mDiamond.center().x()), 0, mNbBitsX);
+//	mChromosome.write(uint32_t(mDiamond.center().y()), mNbBitsX, mNbBitsY);
+//	mChromosome.write(uint32_t(mDiamond.radius()), mNbBitsX + mNbBitsY, mNbBitsRadius);
 //}
 //
-//void CircleSolution::decode()
+//void DiamondSolution::decode()
 //{
 //	uint32_t X{}, Y{}, R{};
 //
@@ -42,18 +45,18 @@
 //	mChromosome.read(Y, mNbBitsX, mNbBitsY);
 //	mChromosome.read(R, mNbBitsX + mNbBitsY, mNbBitsRadius);
 //
-//	mCircle.set(Point(X, Y), R);
+//	mDiamond.set(Point(X, Y), R);
 //}
 //
-//void CircleSolution::copy(Solution const & from)
+//void DiamondSolution::copy(Solution const & from)
 //{
 //	Solution::copy(from);
-//	mCircle = static_cast<CircleSolution const &>(from).mCircle;
+//	mDiamond = static_cast<DiamondSolution const &>(from).mDiamond;
 //}
 //
-//CircleSolution * CircleSolution::clone() const
+//DiamondSolution * DiamondSolution::clone() const
 //{
-//	CircleSolution * temp{ new CircleSolution(mCanvas) };
+//	DiamondSolution * temp{ new DiamondSolution(mCanvas) };
 //	temp->copy(*this);
 //	return temp;
 //}

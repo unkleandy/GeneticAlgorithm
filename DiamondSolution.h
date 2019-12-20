@@ -22,8 +22,8 @@ public:
 
 private:
 	ShapeDiamond mDiamond;
-	size_t mNbBitsX;
-	size_t mNbBitsY;
+	size_t mNbBitsHalfWidth;
+	size_t mNbBitsHalfHeight;
 	size_t mNbBitsCenter;
 	size_t mNbBitsOrientation;
 };

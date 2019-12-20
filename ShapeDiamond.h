@@ -11,8 +11,8 @@ class ShapeDiamond : public Shape {
 
 private:
 	bg::Polygon2d mDiamond;
-	int mX;
-	int mY;
+	int mHalfWidth;
+	int mHalfHeight;
 	int mOrientation;
 	Point mCenter;
 
@@ -23,12 +23,12 @@ public:
 	~ShapeDiamond() = default;
 
 	void set(int a, int b, Point center = Point(0.0, 0.0), int orientationDegrees = 0);
-	void setX(int x);
-	void setY(int y);
+	void setHalfWidth(int halfWidth);
+	void setHalfHeight(int halfHeight);
 	void setOrientation(int orientation);
 	void setCenter(Point center);
-	int x();
-	int y();
+	int halfWidth();
+	int halfHeight();
 	int orientation();
 	Point center();
 	bool isValid() const override;
