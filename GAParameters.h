@@ -46,10 +46,10 @@ public:
 	void setToDefault();
 
 private:
-	size_t mPopulationSize{20};
-	size_t mEllitismSize{2};
-	size_t mConcurrentPopulationCount{1};
-	size_t mMaximumGenerationCount{20};
+	size_t mPopulationSize{};
+	size_t mEllitismSize{};
+	size_t mConcurrentPopulationCount{};
+	size_t mMaximumGenerationCount{};
 
 	Solution * mSolutionSample{};
 	SelectionStrategy * mSelectionStrategy{};
