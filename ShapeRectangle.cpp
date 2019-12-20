@@ -9,9 +9,9 @@ bool ShapeRectangle::isValid() const {
 	return Rect2d::isValid();
 }
 
-void ShapeRectangle::draw(windows_console::image & anImage) const {
+void ShapeRectangle::draw(windows_console::image & anImage, windows_console::brightness_type  aBrightness, windows_console::color_type aColor) const {
 	using namespace windows_console;
-	anImage << pen(dot, text_color(mShapeBrightness, mShapeColor), background_color(mShapeBrightness, mShapeColor))
+	anImage << pen(dot, text_color(aBrightness, aColor), background_color(aBrightness, aColor))
 		<< rectangle(this->topLeft().x(), this->topLeft().y(), this->size().height(),this->size().width());
 }
 

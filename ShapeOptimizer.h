@@ -75,6 +75,9 @@ private:
 	availableShapes_ec mCurrentShape{ availableShapes_ec::Circle };
 	bool mQuitProgram{ false };
 	bool mExitRuntime{ false };
+	std::vector<windows_console::brightness_type> const & mBrightnessTypes{ windows_console::brightness_type::bright,windows_console::brightness_type::dark };
+	std::vector<windows_console::color_type> const & mColorTypes{ windows_console::color_type::red, windows_console::color_type::blue, windows_console::color_type::green,windows_console::color_type::yellow };
+
 
 
 	//ShapeObserver mObserver;

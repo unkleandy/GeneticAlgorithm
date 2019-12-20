@@ -42,9 +42,9 @@ bool ShapeDiamond::isValid() const {
 	return mDiamond.isValid();
 }
 
-void ShapeDiamond::draw(windows_console::image & anImage) const {
+void ShapeDiamond::draw(windows_console::image & anImage, windows_console::brightness_type  aBrightness, windows_console::color_type aColor) const {
 	using namespace windows_console;
-	anImage << pen(dot, text_color(mShapeBrightness, mShapeColor), background_color(mShapeBrightness, mShapeColor));
+	anImage << pen(dot, text_color(aBrightness, aColor), background_color(aBrightness, aColor));
 	for (int index{ 0 }; index < mDiamond.size()-1; ++index) {
 		anImage << line(mDiamond[index].x(), mDiamond[index].y(), mDiamond[index+1].x(), mDiamond[index+1].y());
 	}

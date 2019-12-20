@@ -18,10 +18,11 @@ void Population::set(size_t size, Solution const & solutionSample) {
 	for (size_t i{}; i < mSolutions.size(); ++i) {
 		delete mSolutions[i];
 	}
-
+	
 	mSolutions.resize(size);
 	for (size_t i{}; i < mSolutions.size(); ++i) {
 		mSolutions[i] = solutionSample.clone();
+		
 	}
 }
 
