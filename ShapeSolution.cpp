@@ -49,3 +49,12 @@ bool ShapeSolution::isObstaclesIntersect() const
 	return false;
 
 }
+
+void ShapeSolution::setSolutionBrightness(windows_console::brightness_type aBrightness) {
+	mShape->setShapeBrightness(aBrightness);
+
+}
+
+void ShapeSolution::setSolutionColor(windows_console::color_type aColor) {
+	mShape->setShapeColor(aColor);
+}

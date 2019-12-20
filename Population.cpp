@@ -63,3 +63,7 @@ void Population::sort() {
 void Population::swap(Population & other) {
 	mSolutions.swap(other.mSolutions);
 }
+
+void Population::setPopulationColor(int index) {
+	mPopulationColor = mColorTypes[index];
+}

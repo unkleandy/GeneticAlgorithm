@@ -22,6 +22,8 @@ public:
 protected:
 	Canvas const & mCanvas;
 	Shape * mShape;
+	void setSolutionBrightness(windows_console::brightness_type aBrightness) override;
+	void setSolutionColor(windows_console::color_type aColor) override;
 };
 
 

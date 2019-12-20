@@ -21,10 +21,6 @@ public:
 
 private:
 	ShapeRectangle mRectangle;
-	size_t mNbBitsX;
-	size_t mNbBitsY;
-	size_t mNbBitsWidth;
-	size_t mNbBitsHeight;
 };
 
 

@@ -32,6 +32,10 @@ void PopulationEngine::evolveOneGeneration(GAParameters & parameters){
  	finalizeCurrentEvolution();
 }
 
+void PopulationEngine::setPopulationColor(int index) {
+	mCurrentPopulation.setPopulationColor(index);
+}
+
 void PopulationEngine::processElitism(size_t elitismSize){
 	for (size_t i{ 0 }; i < elitismSize; ++i) {
 		mNextPopulation[i].copy(mCurrentPopulation[mCurrentPopulation.size() - 1]);
