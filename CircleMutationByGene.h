@@ -8,6 +8,7 @@ class CircleMutationByGene :
 	public MutationStrategy
 {
 public:
+	CircleMutationByGene();
 	void mutate(Solution & offspring) override;
 };
 
