@@ -28,7 +28,7 @@ Solution const & SelectionRouletteWheel::select(Population const & population)
 	//std::uniform_real_distribution<double> unif(0, mRankWeight[population.size()-1]);
 	//std::default_random_engine re;
 	//fitness_t lady_luck = unif(re); // Luck be my lady tonight!
-	fitness_t lady_luck = RandomTools::generateRandomNumber(0, mRankWeight[population.size() - 1]);
+	fitness_t lady_luck = static_cast<int>(RandomTools::generateRandomNumber(0, mRankWeight[population.size() - 1]));
 
 
 	int i{ 0 };

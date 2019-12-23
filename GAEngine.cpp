@@ -1,6 +1,5 @@
 #include "GAEngine.h"
 
-
 GAEngine::GAEngine()
 {
 }
@@ -28,17 +27,19 @@ std::vector<FitnessStatistics> const & GAEngine::fitnessStatistics(size_t popula
 void GAEngine::evolveUntilConvergence(GAParameters & parameters)
 {
 	mEvolutionEngines.resize(parameters.concurrentPopulationCount());
+	int index = 0; // utilisé pour itérer dans les couleurs de population
 	for (EvolutionEngine & ee : mEvolutionEngines) 
 	{
 		ee.setup(parameters);
+		ee.setPopulationColor(index);
+		index++;
 	}
 	mEvolutionStatus = InProcess;
 	while (currentGeneration() < parameters.maximumGenerationCount() && mEvolutionStatus == InProcess)
 	{
+		updateObservers();
 		for (EvolutionEngine  & ee : mEvolutionEngines) {
-
 			ee.evolveOneGeneration(parameters);
-			
 		}
 		updateObservers();
 	}

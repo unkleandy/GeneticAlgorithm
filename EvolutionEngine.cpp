@@ -22,6 +22,10 @@ fitnessStatisticsOverTime const & EvolutionEngine::fitnessStatistics() const{
 	return mFitnessStatisticsOverEpoch;
 }
 
+void EvolutionEngine::setPopulationColor(int index) {
+	mPopulationEngine.setPopulationColor(index);
+}
+
 void EvolutionEngine::setup(GAParameters & parameters){
 	mPopulationEngine.setup(parameters);
 }

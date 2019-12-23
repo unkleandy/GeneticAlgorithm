@@ -9,7 +9,6 @@
 #include "MutationAggregator.h"
 
 
-
 GAParameters::GAParameters()
 {
 }
@@ -53,7 +52,7 @@ size_t GAParameters::ellitismSize() const
 
 size_t GAParameters::concurrentPopulationCount() const
 {
-	return mEllitismSize;
+	return mConcurrentPopulationCount;
 }
 
 size_t GAParameters::maximumGenerationCount() const
@@ -146,5 +145,4 @@ void GAParameters::setToDefault()
 	setSelectionStrategy(new SelectionRouletteWheel());
 	setCrossoverStrategy(new CrossoverSinglePointByChromosome());
 	setMutationStrategy(new MutationAggregator());
-	
 }

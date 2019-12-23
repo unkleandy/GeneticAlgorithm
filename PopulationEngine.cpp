@@ -18,7 +18,7 @@ void PopulationEngine::setup(GAParameters & parameters){
 	mCurrentPopulation.set(parameters.populationSize(), parameters.solutionSample());
 	mNextPopulation.set(parameters.populationSize(), parameters.solutionSample());
 	mFitnessStatistics.reset();
-	mCurrentPopulation.randomize();
+	//mCurrentPopulation.randomize();
 	mNextPopulation.randomize();
 	finalizeCurrentEvolution();
 }
@@ -32,9 +32,14 @@ void PopulationEngine::evolveOneGeneration(GAParameters & parameters){
  	finalizeCurrentEvolution();
 }
 
+void PopulationEngine::setPopulationColor(int index) {
+	mCurrentPopulation.setPopulationColor(index);
+	mNextPopulation.setPopulationColor(index);
+}
+
 void PopulationEngine::processElitism(size_t elitismSize){
 	for (size_t i{ 0 }; i < elitismSize; ++i) {
-		mNextPopulation[i].copy(mCurrentPopulation[mCurrentPopulation.size() - 1]);
+		mNextPopulation[i].copy(mCurrentPopulation[mCurrentPopulation.size() - i - 1]);
 	}
 }
 

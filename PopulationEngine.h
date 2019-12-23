@@ -1,3 +1,12 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :	Francis Labine
+
 #pragma once
 #include "Population.h"
 #include "FitnessStatistics.h"
@@ -18,6 +27,7 @@ public:
 	FitnessStatistics const & fitnessStatistics() const;
 	void setup(GAParameters & parameters);
 	void evolveOneGeneration(GAParameters & parameters);
+	void setPopulationColor(int index);
 
 
 private:

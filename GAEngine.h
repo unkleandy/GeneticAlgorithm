@@ -1,4 +1,13 @@
-﻿#pragma once
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :	Andréa Cohen		
+
+#pragma once
 
 #ifndef GAENGINE_H
 #define GAENGINE_H

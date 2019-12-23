@@ -26,4 +26,5 @@ void Solution::copy(Solution const & from)
 	mChromosome = from.mChromosome;
 	mFitness = from.mFitness;
 	std::vector<int>mGeneLenths;
+	
 }

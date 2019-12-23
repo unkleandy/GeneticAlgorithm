@@ -9,20 +9,19 @@ CircleSolution::CircleSolution(Canvas const & canvas)
 	: ShapeSolution(canvas)
 {
 	mShape = &mCircle;
-	size_t canvasWidth = static_cast<size_t>(mCanvas.rectangle().size().width());
-	size_t canvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
-	mNbBitsX = static_cast<size_t>(ceil(log2(canvasWidth)));
-	mNbBitsY = static_cast<size_t>(ceil(log2(canvasHeight)));
-	mNbBitsRadius = static_cast<size_t>(ceil(log2((std::min(canvasWidth, canvasHeight) / 2.0) - 1.0)));
+
+	mCanvasWidth = static_cast<size_t>(mCanvas.rectangle().size().width());
+	mCanvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
+	mNbBitsX = static_cast<size_t>(ceil(log2(mCanvasWidth - 1.0)));
+	mNbBitsY = static_cast<size_t>(ceil(log2(mCanvasHeight - 1.0)));
+	mNbBitsRadius = static_cast<size_t>(ceil(log2((std::min(mCanvasWidth, mCanvasHeight) / 2.0) - 1.0)));
 	mChromosome.resize(mNbBitsX + mNbBitsY + mNbBitsRadius);
 }
 
 void CircleSolution::randomize()
 {
-	size_t canvasWidth = static_cast<size_t>(mCanvas.rectangle().size().width());
-	size_t canvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
-	mCircle.setRadius(RandomTools::generateRandomNumber(0, canvasHeight / 2));
-	mCircle.setCenter(Point(RandomTools::generateRandomNumber(mCircle.radius(), canvasWidth - mCircle.radius()), RandomTools::generateRandomNumber(mCircle.radius(), canvasHeight - mCircle.radius())));
+	mCircle.setRadius(RandomTools::generateRandomNumber(0, mCanvasHeight / 2));
+	mCircle.setCenter(Point(RandomTools::generateRandomNumber(static_cast<int>(mCircle.radius()), static_cast<size_t>(mCanvasWidth - mCircle.radius())), static_cast<size_t>(RandomTools::generateRandomNumber(mCircle.radius(), mCanvasHeight - mCircle.radius()))));
 	encode();
 }
 

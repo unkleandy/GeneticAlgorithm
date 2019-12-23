@@ -12,23 +12,12 @@ CircleMutationByGene::CircleMutationByGene()
 }
 
 void CircleMutationByGene::mutate(Solution & offspring)
-{
-	try {
-		ShapeCircle * offspringCircle = new ShapeCircle();
-		*offspringCircle = static_cast<ShapeCircle const &> ((static_cast<CircleSolution const &>(offspring)).shape());
-		double centerx = abs(offspringCircle->center().x() + RandomTools::generateRandomNumber(-5, 5));
-		double centery = abs(offspringCircle->center().y() + RandomTools::generateRandomNumber(-5, 5));
-		size_t radius = offspringCircle->radius() + RandomTools::generateRandomNumber(1, 5);
-		Point p;
-		p.setX(centerx);
-		p.setY(centery);
-		offspringCircle->setCenter(p);
-		offspringCircle->setRadius(radius);
-
-		static_cast<CircleSolution &>(offspring).setShape(offspringCircle);
-		//offspring.encode();
-	}
-	catch (int e) {
-
+{	//hardcode mais c'est pour empecher le losange ou le rectangle d'utiliser un mutateur qui ne fonctionne que pour le cercle
+	if (offspring.chromosome().size() == 24) {
+		ShapeCircle  & c{ static_cast<ShapeCircle  &> ((static_cast<CircleSolution  &>(offspring)).shape()) };
+		double centerx = abs(c.center().x() + RandomTools::generateRandomNumber(-4, 4));
+		double centery = abs(c.center().y() + RandomTools::generateRandomNumber(-4, 4));
+		size_t radius = static_cast<size_t>(c.radius()) + static_cast<size_t>(RandomTools::generateRandomNumber(1, 4));
+		static_cast<ShapeCircle  &> ((static_cast<CircleSolution  &>(offspring)).shape()).set(Point(centerx, centery), radius);
 	}
 }

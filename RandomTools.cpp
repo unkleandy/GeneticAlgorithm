@@ -1,6 +1,7 @@
 #include<random>
 #include"RandomTools.h"
 
+#include <chrono>
 
 
 
@@ -9,8 +10,8 @@
 
 bool RandomTools::generateEvent(double probability)
 {
-	std::random_device randomDevice;
-	std::mt19937 randomGenerator(randomDevice());
+	//std::random_device randomDevice(std::chrono::steady_clock::now().time_since_epoch().count());
+	std::mt19937 randomGenerator(static_cast<size_t>(std::chrono::steady_clock::now().time_since_epoch().count()));
 	std::bernoulli_distribution randomDistribution(probability);
 	return randomDistribution(randomGenerator);
 }
@@ -18,8 +19,8 @@ bool RandomTools::generateEvent(double probability)
 int RandomTools::generateRandomNumber(int min, int max) {
 	//std::uniform_int_distribution<> definer(min, max); // définit le range de la génération aléatoire
 	//return definer(randomGenerator);
-	std::random_device rd;  //Will be used to obtain a seed for the random number engine
-	std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+	//std::random_device rd;  //Will be used to obtain a seed for the random number engine
+	std::mt19937 gen(static_cast<size_t>(std::chrono::steady_clock::now().time_since_epoch().count())); //Standard mersenne_twister_engine seeded with rd()
 	std::uniform_int_distribution<> dis(min, max);
 	return dis(gen);
 }

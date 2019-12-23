@@ -31,6 +31,7 @@ std::string ViewMenu::sCurrentPopulationCount(	"   Nombre de populations actuel 
 std::string ViewMenu::sChangeShape(				" - [a]\t\tForme a optimiser (Cercle, Rectangle, Triangle)");
 std::string ViewMenu::sCurrentShape(			"   Forme a optimiser actuelle : ");
 
+// Des ajustements de paramètre qui peuvent (ou auraient pu) éventuellement être ajoutés.
 //std::string ViewMenu::sChangeElitismCount(	" - [F3][F4]		Taille de l'elitisme (-/+)");
 //std::string ViewMenu::sCurrentElitismCount(	"	Nombre d'elites actuel : ");
 //std::string ViewMenu::sChangeGenerationCount(	" - [F7][F8]		Nombre maximum de generation (-/+)");
@@ -43,7 +44,6 @@ ViewMenu::ViewMenu()
 
 	// mBlankImage est un buffer vide
 	mBlankImage << fill;
-
 }
 
 void ViewMenu::setupWindow() {
@@ -68,6 +68,14 @@ void ViewMenu::run() {
 	displayMenu();
 	while (!mExitMenu) {
 		readInput();
+
+		if (mInputKey != keyBinding_ec::None) {
+			doAction();
+			clearScreen();
+			if (!mExitMenu) {
+				displayMenu(); // Rafraichit l'écran pour que les changements de paramètres puissent être affichés
+			}
+		}
 	}
 	mExitMenu = false;
 }
@@ -77,7 +85,7 @@ void ViewMenu::clearScreen() {
 	csl << mBlankImage;
 }
 
-void ViewMenu::displayMenu() {
+void ViewMenu::displayMenu() const {
 	std::cout << sMenuText << std::endl << std::endl;
 	std::cout << sConfigTitle << std::endl << std::endl;
 	std::cout << sChangeObstacleCount << std::endl;
@@ -96,39 +104,39 @@ void ViewMenu::readInput() {
 	ce.read_events();
 	if (ce.key_events_count()) { // Le if fonctionne aussi bien que le while
 		mInputKey = (keyBinding_ec)toupper(ce.next_key_event().ascii_value());
-		switch (mInputKey) {
-		case keyBinding_ec::Lower_Obstacle_Count:
-			mShapeOptimizer->lowerObstacleCount();
-			break;
-		case keyBinding_ec::Raise_Obstacle_Count:
-			mShapeOptimizer->raiseObstacleCount();
-			break;
-		case keyBinding_ec::Reset_Obstacle_Count:
-			mShapeOptimizer->cycleObstacleResetRequested();
-			break;
-		case keyBinding_ec::Set_Population_Count1:
-		case keyBinding_ec::Set_Population_Count2:
-		case keyBinding_ec::Set_Population_Count3:
-		case keyBinding_ec::Set_Population_Count4:
-			mShapeOptimizer->setPopulationCount((size_t)((char)mInputKey - '0')); // '1' = 49 dont - 48 va donner 1 en int ('2'=50, '3'=51, etc)
-			break;
-		case keyBinding_ec::Cycle_Shape:
-			mShapeOptimizer->cycleShape();
-			break;
-		case keyBinding_ec::Quit:
-			mShapeOptimizer->setQuitProgram(true); // Pas de break: on veut sortir du menu lorsqu'on quit.
-		case keyBinding_ec::Start_Simulation:
-			exitMenu();
-			break;
-		}
-		mInputKey = keyBinding_ec::None;
-		clearScreen();
-		if (mShapeOptimizer->obstacleCountChanged()) {
-			mShapeOptimizer->setObstacleResetRequested(true);
-		}
-		if (!mExitMenu) {
-			displayMenu();
-		}
+	}
+}
+
+void ViewMenu::doAction() {
+	switch (mInputKey) {
+	case keyBinding_ec::Lower_Obstacle_Count:
+		mShapeOptimizer->lowerObstacleCount();
+		break;
+	case keyBinding_ec::Raise_Obstacle_Count:
+		mShapeOptimizer->raiseObstacleCount();
+		break;
+	case keyBinding_ec::Reset_Obstacle_Count:
+		mShapeOptimizer->cycleObstacleResetRequested();
+		break;
+	case keyBinding_ec::Set_Population_Count1:
+	case keyBinding_ec::Set_Population_Count2:
+	case keyBinding_ec::Set_Population_Count3:
+	case keyBinding_ec::Set_Population_Count4:
+		mShapeOptimizer->setPopulationCount((size_t)((char)mInputKey - '0')); // '1' = 49 dont - 48 va donner 1 en int ('2'=50, '3'=51, etc)
+		break;
+	case keyBinding_ec::Cycle_Shape:
+		mShapeOptimizer->cycleShape();
+		break;
+	case keyBinding_ec::Quit:
+		mShapeOptimizer->setQuitProgram(true); // Pas de break: on veut sortir du menu lorsqu'on quit.
+	case keyBinding_ec::Start_Simulation:
+		exitMenu();
+		break;
+	}
+	mInputKey = keyBinding_ec::None;
+
+	if (mShapeOptimizer->obstacleCountChanged()) {
+		mShapeOptimizer->setObstacleResetRequested(true);
 	}
 }
 

@@ -3,18 +3,16 @@
 #include "RandomTools.h"
 
 
-
 Canvas::Canvas(Rectangle const & rectangle, size_t obstacleCount)
 	:
 	mRect{ rectangle }
-
 {
 	set(Rectangle(0, 0, 300, 200), 20);
 	mObstacles.resize(obstacleCount);
 	randomizeObstacles();
 }
 
-bool Canvas::isValid() const{
+bool const & Canvas::isValid() const{
 	return mRect.isValid();
 }
 
@@ -26,20 +24,20 @@ std::vector<Point> const & Canvas::obstacles() const {
 	return mObstacles;
 }
 
-void Canvas::set(Rectangle const & rectangle, size_t obstacleCount) {
+void Canvas::set(Rectangle const & rectangle, size_t const & obstacleCount) {
 	mRect = rectangle;
 	setObstacles(obstacleCount);
 }
 
-void Canvas::setObstacles(size_t obstacleCount) {
+void Canvas::setObstacles(size_t const & obstacleCount) {
 	mObstacles.resize(obstacleCount);
 }
 
-double Canvas::generateRandomObstacleX() {
-	return RandomTools::generateRandomNumber(mRect.topLeft().x(), (mRect.topLeft().x() + mRect.size().width()));
+int Canvas::generateRandomObstacleX() {
+	return RandomTools::generateRandomNumber(static_cast<int>(mRect.topLeft().x()), static_cast<int>((mRect.topLeft().x() + mRect.size().width())));
 }
-double Canvas::generateRandomObstacleY() {
-	return RandomTools::generateRandomNumber(mRect.topLeft().y(), (mRect.topLeft().y() + mRect.size().height()));
+int Canvas::generateRandomObstacleY() {
+	return RandomTools::generateRandomNumber(static_cast<int>(mRect.topLeft().y()), static_cast<int>((mRect.topLeft().y() + mRect.size().height())));
 }
 
 void Canvas::generateRandomObstacle(Point & p) {
@@ -52,17 +50,11 @@ void Canvas::randomizeObstacles() {
 	}
 }
 
-//void Canvas::drawBackground() const {
-//
-//}
-
-void Canvas::drawObstacles() const {
+void Canvas::drawObstacles(windows_console::image & anImage) const {
 	using namespace windows_console;
-	image anImage;
-	csl >> anImage;
 	for (Point const & obstacle : mObstacles) {
 		anImage << pen(dot, text_color(bright, yellow), background_color(dark, yellow))
-			<< point(obstacle.x(), obstacle.y());
+			<< point(static_cast<int>(obstacle.x()), static_cast<int>(obstacle.y()));
 	}
-	csl << anImage;
+
 }
