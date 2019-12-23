@@ -2,11 +2,3 @@
 
 
 
-ShapeObserver::ShapeObserver()
-{
-}
-
-
-ShapeObserver::~ShapeObserver()
-{
-}

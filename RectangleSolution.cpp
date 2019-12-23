@@ -8,12 +8,12 @@ RectangleSolution::RectangleSolution(Canvas const & canvas)
 {
 	mShape = &mRectangle;
 
-	size_t canvasWidth = static_cast<size_t>(mCanvas.rectangle().size().width());
-	size_t canvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
-	mNbBitsX = static_cast<size_t>(ceil(log2(canvasWidth - 1.0)));
-	mNbBitsY = static_cast<size_t>(ceil(log2(canvasHeight - 1.0)));
-	mNbBitsWidth = static_cast<size_t>(ceil(log2(canvasWidth)));
-	mNbBitsHeight = static_cast<size_t>(ceil(log2(canvasHeight)));
+	mCanvasWidth = static_cast<size_t>(mCanvas.rectangle().size().width());
+	mCanvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
+	mNbBitsX = static_cast<size_t>(ceil(log2(mCanvasWidth - 1.0)));
+	mNbBitsY = static_cast<size_t>(ceil(log2(mCanvasHeight - 1.0)));
+	mNbBitsWidth = static_cast<size_t>(ceil(log2(mCanvasWidth)));
+	mNbBitsHeight = static_cast<size_t>(ceil(log2(mCanvasHeight)));
 
 	mChromosome.resize(mNbBitsX + mNbBitsY + mNbBitsWidth + mNbBitsHeight);
 }
@@ -31,7 +31,6 @@ void RectangleSolution::randomize()
 	mRectangle.setBottomRight((randRight, randBottom));
 }
 
-
 void RectangleSolution::encode()
 {
 	mChromosome.write(static_cast<uint32_t>(mRectangle.topLeft().x()), 0, mNbBitsX);
@@ -42,7 +41,7 @@ void RectangleSolution::encode()
 
 void RectangleSolution::decode()
 {
-	uint32_t X, Y, W, H;
+	uint32_t X{}, Y{}, W{}, H{};
 
 	mChromosome.read(X, 0, mNbBitsX);
 	mChromosome.read(Y, mNbBitsX, mNbBitsY);

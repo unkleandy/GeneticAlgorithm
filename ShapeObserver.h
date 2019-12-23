@@ -10,10 +10,17 @@
 class ShapeObserver : public EvolutionObserver
 {
 public:
+<<<<<<< HEAD
 	ShapeObserver();
 	~ShapeObserver();
 	
 	//void update(GAEngine const & engine) override;
+=======
+	ShapeObserver() = default;
+	~ShapeObserver() = default;
+	/*
+	void update(GAEngine const & engine) override;
+>>>>>>> origin/Frederic
 
 private:
 //	ShapeOptimizer & mShapeOptimizer;

@@ -7,9 +7,9 @@ ShapeSolution::ShapeSolution(Canvas const & canvas)
 {
 }
 
-void ShapeSolution::draw(windows_console::image & anImage) const
+void ShapeSolution::draw(windows_console::image & anImage, windows_console::brightness_type  aBrightness, windows_console::color_type aColor) const
 {
-	mShape->draw(anImage);
+	mShape->draw(anImage, aBrightness, aColor);
 }
 
 
@@ -59,3 +59,13 @@ void ShapeSolution::setShape(Shape * shape)
 {
 	mShape = shape;
 }
+
+void ShapeSolution::setSolutionBrightness(windows_console::brightness_type aBrightness) {
+	mShape->setShapeBrightness(aBrightness);
+
+}
+
+void ShapeSolution::setSolutionColor(windows_console::color_type aColor) {
+	mShape->setShapeColor(aColor);
+}
+

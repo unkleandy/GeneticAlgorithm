@@ -3,18 +3,16 @@
 #include "RandomTools.h"
 
 
-
 Canvas::Canvas(Rectangle const & rectangle, size_t obstacleCount)
 	:
 	mRect{ rectangle }
-
 {
 	set(Rectangle(0, 0, 300, 200), 20);
 	mObstacles.resize(obstacleCount);
 	randomizeObstacles();
 }
 
-bool Canvas::isValid() const{
+bool const & Canvas::isValid() const{
 	return mRect.isValid();
 }
 
@@ -26,12 +24,12 @@ std::vector<Point> const & Canvas::obstacles() const {
 	return mObstacles;
 }
 
-void Canvas::set(Rectangle const & rectangle, size_t obstacleCount) {
+void Canvas::set(Rectangle const & rectangle, size_t const & obstacleCount) {
 	mRect = rectangle;
 	setObstacles(obstacleCount);
 }
 
-void Canvas::setObstacles(size_t obstacleCount) {
+void Canvas::setObstacles(size_t const & obstacleCount) {
 	mObstacles.resize(obstacleCount);
 }
 
@@ -52,17 +50,11 @@ void Canvas::randomizeObstacles() {
 	}
 }
 
-//void Canvas::drawBackground() const {
-//
-//}
-
-void Canvas::drawObstacles() const {
+void Canvas::drawObstacles(windows_console::image & anImage) const {
 	using namespace windows_console;
-	image anImage;
-	csl >> anImage;
 	for (Point const & obstacle : mObstacles) {
 		anImage << pen(dot, text_color(bright, yellow), background_color(dark, yellow))
 			<< point(obstacle.x(), obstacle.y());
 	}
-	csl << anImage;
+
 }

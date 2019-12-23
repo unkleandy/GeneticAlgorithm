@@ -9,7 +9,6 @@
 #include "MutationAggregator.h"
 
 
-
 GAParameters::GAParameters()
 {
 }

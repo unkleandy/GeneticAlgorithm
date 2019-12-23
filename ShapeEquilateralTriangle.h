@@ -11,7 +11,7 @@ class ShapeEquilateralTriangle : public Shape {
 private:
 	bg::Polygon2d mTriangle;
 	std::vector<Point> mVertices;
-	size_t const & mNbSides{3};
+	size_t const & mNbSides{ 3 };
 	size_t mSideLength{};
 	size_t triangleHeight();
 
@@ -23,7 +23,7 @@ public:
 	void rotate(size_t orientationDegrees);
 	void transform(size_t tX, size_t tY, size_t orientationDegrees, double relativeScale);
 	bool isValid() const override;
-	void draw(windows_console::image & anImage) const override;
+	void draw() const override;
 	double area() const override;
 	Rectangle boundingRect() const override;
 	bool contains(Point const & p) const override;
@@ -34,4 +34,3 @@ public:
 };
 
 #endif // SHAPE_EQUILATERAL_TRIANGLE_H
-

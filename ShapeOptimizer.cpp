@@ -2,6 +2,7 @@
 #include "Solution.h"
 #include "RectangleSolution.h"
 #include "CircleSolution.h"
+#include "DiamondSolution.h"
 
 
 ShapeOptimizer::ShapeObserver::ShapeObserver(ShapeOptimizer & shapeOptimizer)
@@ -29,28 +30,32 @@ void ShapeOptimizer::run() {
 	while (!mQuitProgram) {
 		mStartingObstacleCount = mObstacleCount;
 		mViewMenu.run();
-		if (!mQuitProgram) { // Possible de pas répéter 2x la meme condition ? 
+		if (!mQuitProgram) { // A voir: possible de pas répéter 2x la meme condition ? 
 			mViewRuntime.setupWindow();
 			mParameters.setToDefault();
 			mParameters.setConcurrentPopulationCount(mPopulationCount);
-			mParameters.setSolutionSample(new CircleSolution(mCanvas));
+			loadSolution();
+			mParameters.setConcurrentPopulationCount(mPopulationCount);
 			mEngine.registerObserver(mShapeObserver);
 			mEngine.evolveUntilConvergence(mParameters);
 		}
+		mParameters.clearAll();
 	}
 }
 
 void ShapeOptimizer::loadSolution() {
-	Solution * solutionPtr{};
+	//Solution * solutionPtr{};
 	switch (mCurrentShape) {
 	case  availableShapes_ec::Rectangle:
-		solutionPtr = new RectangleSolution(mCanvas);
+		mParameters.setSolutionSample(new RectangleSolution(mCanvas)); 
 		break;
 	case  availableShapes_ec::Circle:
-		solutionPtr = new RectangleSolution(mCanvas);
+		mParameters.setSolutionSample(new CircleSolution(mCanvas));
 		break;
-	}
-	mParameters.setSolutionSample(solutionPtr);
+	case  availableShapes_ec::Losange:
+		mParameters.setSolutionSample(new DiamondSolution(mCanvas)); 
+		break;
+	} 
 }
 
 void ShapeOptimizer::update(GAEngine const & engine) {
@@ -61,18 +66,40 @@ void ShapeOptimizer::update(GAEngine const & engine) {
 	}
 }
 
-void ShapeOptimizer::drawPopulations() {
-	using namespace windows_console;
-	image  anImage;
-	mViewRuntime.clearScreen();
-	csl >> anImage;
-	for (size_t index{ 0 }; index < mPopulationCount; ++index) {
-		for (size_t indexSolution{ 0 }; indexSolution < mParameters.populationSize();++indexSolution) {
-			static_cast<ShapeSolution const &>(mEngine.population(index)[indexSolution]).draw(anImage);
+void ShapeOptimizer::drawPopulations(windows_console::image & anImage) const{
+	for (size_t indexPopulation{ 0 }; indexPopulation < mPopulationCount; ++indexPopulation) {
+		drawOnePopulation(indexPopulation, anImage);
+	}
+}
+
+void ShapeOptimizer::drawOnePopulation(int const & indexPopulation, windows_console::image & anImage) const {
+	int indexBrightness = 1;
+	for (size_t indexSolution{ 0 }; indexSolution < mParameters.populationSize(); ++indexSolution) {
+		if (indexSolution == mParameters.populationSize() - 1) {
+			drawOneBestSolution(indexPopulation, anImage);
+		}
+		else {
+			drawOneSolution(indexPopulation, indexSolution, indexBrightness, anImage);
 		}
 	}
+}
 
-	csl << anImage;
+void ShapeOptimizer::drawOneSolution(int const & indexPopulation, int const & indexSolution, int const & indexBrightness, windows_console::image & anImage) const {
+	static_cast<ShapeSolution const &>(mEngine.population(indexPopulation)[indexSolution]).draw(anImage, mBrightnessTypes[indexBrightness], mColorTypes[indexPopulation]);
+
+}
+
+void ShapeOptimizer::drawOnlyBestSolutions(windows_console::image & anImage) const {
+	int indexBrightness = 0;
+	for (size_t indexPopulation{ 0 }; indexPopulation < mPopulationCount; ++indexPopulation) {
+		drawOneBestSolution(indexPopulation, anImage);
+	}
+}
+
+void ShapeOptimizer::drawOneBestSolution(int const & indexPopulation, windows_console::image & anImage) const {
+	int indexBrightness = 0;
+	int indexSolution = mParameters.populationSize() - 1;
+	drawOneSolution(indexPopulation, indexSolution, indexBrightness, anImage);
 }
 
 void ShapeOptimizer::raiseObstacleCount() {
@@ -160,8 +187,8 @@ std::string ShapeOptimizer::shapeToString() {
 	case ShapeOptimizer::availableShapes_ec::Circle:
 		return "cercle";
 		break;
-	case ShapeOptimizer::availableShapes_ec::Triangle:
-		return "triangle";
+	case ShapeOptimizer::availableShapes_ec::Losange:
+		return "losange";
 		break;
 	default:
 		return "";

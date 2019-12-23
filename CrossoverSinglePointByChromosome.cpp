@@ -1,7 +1,6 @@
 #include "CrossoverSinglePointByChromosome.h"
 #include "Solution.h"
 #include "Chromosome.h"
-#include "RandomUtil.h"
 #include "RandomTools.h"
 
 Solution const & CrossoverSinglePointByChromosome::breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring)
@@ -18,4 +17,3 @@ Solution const & CrossoverSinglePointByChromosome::breed(Solution const & genito
 	}
 	return offspring;
 }
-

@@ -1,3 +1,12 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:	Classe abstraie de stratégie de reproduction entre deux solutions sélectionnées		
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :	Andréa Cohen
+
 #pragma once
 #ifndef _CROSSOVERSTRATEGY_H_
 #define _CROSSOVERSTRATEGY_H_

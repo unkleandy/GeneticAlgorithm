@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{022B778C-14FC-4AF4-BE08-536DE3F5870A}</ProjectGuid>
+    <RootNamespace>GeneticAlgorithm</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\dev\header\windows_console\;..\dev\header\ga\;..\dev\header\bg\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\dev\lib\x86\Debug\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>bg.lib;windows_console.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\dev\header\windows_console\;..\dev\header\bg\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>bg.lib;windows_console.lib;bg.lib;windows_console.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\dev\lib\x64\Debug\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\dev\header\windows_console\;..\dev\header\ga\;..\dev\header\bg\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\dev\lib\x32\Release\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>bg.lib;ga.lib;windows_console.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\dev\header\windows_console\;..\dev\header\ga\;..\dev\header\bg\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>bg.lib;ga.lib;windows_console.lib;bg.lib;ga.lib;windows_console.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\dev\lib\x64\Release\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="Chromosome.cpp" />
+    <ClCompile Include="CircleMutationByGene.cpp" />
+    <ClCompile Include="CircleSolution.cpp" />
+    <ClCompile Include="CrossoverSinglePointByChromosome.cpp" />
+    <ClCompile Include="DiamondSolution.cpp" />
+    <ClCompile Include="EvolutionEngine.cpp" />
+    <ClCompile Include="GAEngine.cpp" />
+    <ClCompile Include="GAParameters.cpp" />
+    <ClCompile Include="MutationAggregator.cpp" />
+    <ClCompile Include="MutationByChromosome.cpp" />
+    <ClCompile Include="MutationStrategy.cpp" />
+    <ClCompile Include="Population.cpp" />
+    <ClCompile Include="PopulationEngine.cpp" />
+    <ClCompile Include="Projet3.cpp" />
+    <ClCompile Include="RandomTools.cpp" />
+    <ClCompile Include="RectangleSolution.cpp" />
+    <ClCompile Include="SelectionRouletteWheel.cpp" />
+    <ClCompile Include="SelectionStrategy.cpp" />
+    <ClCompile Include="ShapeCircle.cpp" />
+    <ClCompile Include="ShapeDiamond.cpp" />
+    <ClCompile Include="ShapeOptimizer.cpp" />
+    <ClCompile Include="ShapeRectangle.cpp" />
+    <ClCompile Include="ShapeSolution.cpp" />
+    <ClCompile Include="ShapeTriangle.cpp" />
+    <ClCompile Include="Solution.cpp" />
+    <ClCompile Include="ViewMenu.cpp" />
+    <ClCompile Include="ViewRuntime.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Canvas.h" />
+    <ClInclude Include="Chromosome.h" />
+    <ClInclude Include="CircleMutationByGene.h" />
+    <ClInclude Include="CircleSolution.h" />
+    <ClInclude Include="CrossoverSinglePointByChromosome.h" />
+    <ClInclude Include="CrossoverStrategy.h" />
+    <ClInclude Include="DiamondSolution.h" />
+    <ClInclude Include="EvolutionEngine.h" />
+    <ClInclude Include="EvolutionObserver.h" />
+    <ClInclude Include="EvolutionStatus.h" />
+    <ClInclude Include="Fitness.h" />
+    <ClInclude Include="FitnessStatistics.h" />
+    <ClInclude Include="fitnessStatisticsOverTime.h" />
+    <ClInclude Include="fitness_t.h" />
+    <ClInclude Include="GAEngine.h" />
+    <ClInclude Include="GAParameters.h" />
+    <ClInclude Include="MutationAggregator.h" />
+    <ClInclude Include="MutationByChromosome.h" />
+    <ClInclude Include="MutationStrategy.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Population.h" />
+    <ClInclude Include="PopulationEngine.h" />
+    <ClInclude Include="RandomUtil.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectangleSolution.h" />
+    <ClInclude Include="ResetPointer.h" />
+    <ClInclude Include="SelectionRouletteWheel.h" />
+    <ClInclude Include="SelectionStrategy.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="ShapeCircle.h" />
+    <ClInclude Include="ShapeDiamond.h" />
+    <ClInclude Include="ShapeOptimizer.h" />
+    <ClInclude Include="ShapeRectangle.h" />
+    <ClInclude Include="ShapeSolution.h" />
+    <ClInclude Include="ShapeTriangle.h" />
+    <ClInclude Include="Size.h" />
+    <ClInclude Include="Solution.h" />
+    <ClInclude Include="ViewMenu.h" />
+    <ClInclude Include="ViewRuntime.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

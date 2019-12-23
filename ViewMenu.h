@@ -1,3 +1,17 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				Gère l'affichage du menu principal ainsi que la configuration des
+//							différents paramètres du programme. La "vue" du modèle MVC est ici divisée
+//							en deux partie, l'une pour le menu principale (ViewMenu) et l'autre pour 
+//							la simulation (ViewRuntime). La conception est ainsi car la console doit 
+//							être redimensionnée entre les deux partie pour permettre l'affichage lisible
+//							des caractères 
+//							
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :					Frédéric Bélanger		
+
 #pragma once
 #ifndef VIEW_MENU_H
 #define VIEW_MENU_H
@@ -6,16 +20,27 @@
 #include <console.h>
 #include "ShapeOptimizer.h"
 
+// Foward declaration
 class ShapeOptimizer;
+
 class ViewMenu
 {
 public:
+
+	// Constructeur qui initialize mBlankImage avec un buffer vide (pour la méthode clearScreen()).
 	ViewMenu();
 	~ViewMenu() = default;
+	
+	// Mutateur de la variable mShapeOptimizer qui est utilisée pour que le menu principal puisse modifier les 
+	// variables des paramètres (nb d'obstacles, nb de population, etc) qui sont dans la classe ShapeOptimizer.
 	void setShapeOptimizer(ShapeOptimizer * shapeOptimizer);
+
+	// Boucle qui gère les différentes composantes du menu principal.
 	void run();
 
 private:
+
+	// Enum qui associe les actions du menu principal à leurs entrées au clavier.
 	enum class keyBinding_ec : char {
 		Quit = 27,	// escape character
 		Start_Simulation = 32,  // spacebar character
@@ -31,16 +56,12 @@ private:
 		_count_
 	};
 
+
+	// Enum des différentes formes qui peuvent être évaluées par l'IA.
 	enum class availableShapes_ec : size_t {
 		Rectangle,
 		Circle,
-		Triangle,
-		_count_
-	};
-
-	enum class resetRequest_ec : bool {
-		Oui = true,
-		Non = false,
+		Losange,
 		_count_
 	};
 
@@ -57,10 +78,12 @@ private:
 	static std::string sChangeShape;
 	static std::string sCurrentShape;
 
+	// Des ajustements de paramètre qui peuvent (ou auraient pu) éventuellement être ajoutés.
 	//static std::string sChangeElitismCount;
 	//static std::string sCurrentElitismCount;
 	//static std::string sChangeGenerationCount;
 	//static std::string sCurrentGenerationCount;
+
 
 	int mConsoleWidth{ 150 };
 	int mConsoleHeight{ 30 };
@@ -69,14 +92,26 @@ private:
 	windows_console::font::size_type mRunningFontSize{ 16 };
 	windows_console::font::ratio_type mRunningFontRatio{ 0.5 };
 	ShapeOptimizer * mShapeOptimizer;
-	void obstacleCountChanged();
 	bool mExitMenu{ false };
-	keyBinding_ec mInputKey;
+	keyBinding_ec mInputKey{ keyBinding_ec::None };
 
+	// Configuration des paramètres de la console. Afin de permettre l'affichage de caractères lisibles la console doit être 
+	// redimensionnée.
 	void setupWindow();
-	void displayMenu();
+
+	// Affichage du menu principal.
+	void displayMenu() const;
+
+	// Lecture des entrées au clavier.
 	void readInput();
+
+	// Effectue les actions correspondantes aux entrées au clavier de l'usager.
+	void doAction();
+
+	// Efface l'écran.
 	void clearScreen();
+
+	// Change la variable "mExitMenu" à "true" pour permettre la sortie du menu principal.
 	void exitMenu();
 };
 
