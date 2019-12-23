@@ -22,6 +22,7 @@ void CircleSolution::randomize()
 {
 	mCircle.setRadius(RandomTools::generateRandomNumber(0, mCanvasHeight / 2));
 	mCircle.setCenter(Point(RandomTools::generateRandomNumber(mCircle.radius(), mCanvasWidth - mCircle.radius()), RandomTools::generateRandomNumber(mCircle.radius(), mCanvasHeight - mCircle.radius())));
+	encode();
 }
 
 void CircleSolution::encode()

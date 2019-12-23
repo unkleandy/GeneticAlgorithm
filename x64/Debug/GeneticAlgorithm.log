@@ -1,0 +1,6 @@
+﻿  ShapeOptimizer.cpp
+y:\b52-dev-env_bd\tp3\geneticalgorithm\shapeoptimizer.cpp(71): warning C4267: 'argument' : conversion de 'size_t' en 'const int', perte possible de données
+y:\b52-dev-env_bd\tp3\geneticalgorithm\shapeoptimizer.cpp(82): warning C4267: 'argument' : conversion de 'size_t' en 'const int', perte possible de données
+y:\b52-dev-env_bd\tp3\geneticalgorithm\shapeoptimizer.cpp(95): warning C4267: 'argument' : conversion de 'size_t' en 'const int', perte possible de données
+y:\b52-dev-env_bd\tp3\geneticalgorithm\shapeoptimizer.cpp(101): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+  GeneticAlgorithm.vcxproj -> Y:\B52-Dev-Env_BD\TP3\x64\Debug\GeneticAlgorithm.exe

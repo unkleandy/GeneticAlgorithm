@@ -10,6 +10,7 @@
 
 
 GAParameters::GAParameters()
+	:mSelectionStrategy{nullptr}
 {
 }
 
@@ -145,4 +146,5 @@ void GAParameters::setToDefault()
 	setSelectionStrategy(new SelectionRouletteWheel());
 	setCrossoverStrategy(new CrossoverSinglePointByChromosome());
 	setMutationStrategy(new MutationAggregator());
+	
 }

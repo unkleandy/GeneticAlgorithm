@@ -39,7 +39,6 @@ void ShapeOptimizer::run() {
 			mEngine.registerObserver(mShapeObserver);
 			mEngine.evolveUntilConvergence(mParameters);
 		}
-		mParameters.clearAll();
 	}
 }
 

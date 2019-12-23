@@ -14,7 +14,6 @@
 #include "Solution.h"
 
 
-
 class CrossoverSinglePointByChromosome : public CrossoverStrategy
 {
 public:

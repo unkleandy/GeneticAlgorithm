@@ -68,4 +68,3 @@ void ShapeSolution::setSolutionBrightness(windows_console::brightness_type aBrig
 void ShapeSolution::setSolutionColor(windows_console::color_type aColor) {
 	mShape->setShapeColor(aColor);
 }
-

@@ -2,7 +2,6 @@
 #include "MutationByChromosome.h"
 
 
-
 MutationByChromosome::MutationByChromosome()
 {
 	setMutationRate(0.1);
