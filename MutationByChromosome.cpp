@@ -5,6 +5,7 @@
 
 MutationByChromosome::MutationByChromosome()
 {
+	setMutationRate(0.1);
 }
 
 

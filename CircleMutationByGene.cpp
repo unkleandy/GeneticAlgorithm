@@ -9,6 +9,7 @@
 
 CircleMutationByGene::CircleMutationByGene()
 {
+	setMutationRate(0.15);
 }
 
 void CircleMutationByGene::mutate(Solution & offspring)
@@ -24,9 +25,6 @@ void CircleMutationByGene::mutate(Solution & offspring)
 	p.setY(centery);
 	offspringCircle->setCenter(p);
 	offspringCircle->setRadius(radius);
-	
 
 	static_cast<CircleSolution &>(offspring).setShape(offspringCircle);
-
-	offspring.encode();
 }
