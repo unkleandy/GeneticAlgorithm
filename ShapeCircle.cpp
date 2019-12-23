@@ -44,7 +44,7 @@ bool ShapeCircle::isValid() const {
 
 void ShapeCircle::draw(windows_console::image & anImage) const {
 	using namespace windows_console;
-	anImage << pen(dot, text_color(bright, red), background_color(dark, red))
+	anImage << pen(dot, text_color(bright, red), background_color(dark, red)) << no_brush
 		<< circle(mCenter.x(), mCenter.y(), mRadius);
 
 }

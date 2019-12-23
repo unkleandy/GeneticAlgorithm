@@ -64,8 +64,8 @@ void ShapeOptimizer::update(GAEngine const & engine) {
 void ShapeOptimizer::drawPopulations() {
 	using namespace windows_console;
 	image  anImage;
-	mViewRuntime.clearScreen();
-	csl >> anImage;
+	//mViewRuntime.clearScreen();
+	//csl >> anImage;
 	for (size_t index{ 0 }; index < mPopulationCount; ++index) {
 		for (size_t indexSolution{ 0 }; indexSolution < mParameters.populationSize();++indexSolution) {
 			static_cast<ShapeSolution const &>(mEngine.population(index)[indexSolution]).draw(anImage);

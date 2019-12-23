@@ -44,7 +44,6 @@ void PopulationEngine::processOneOffspring(GAParameters & parameters, size_t pos
 }
 
 void PopulationEngine::finalizeCurrentEvolution(){
-	mNextPopulation.encode();
 	mNextPopulation.decode();
 	mNextPopulation.processFitness();
 	mNextPopulation.sort();
@@ -54,8 +53,7 @@ void PopulationEngine::finalizeCurrentEvolution(){
 
 void PopulationEngine::processStatistics() {
 	fitness_t min{ mCurrentPopulation[0].fitness() }, max{ 0 }, avg{ 0 };
-
-	for (int i{ 0 }; i < mCurrentPopulation.size(); ++i) {
+	for (size_t i{ 0 }; i < mCurrentPopulation.size(); ++i) {
 		avg += mCurrentPopulation[i].fitness();
 	}
 	mFitnessStatistics.maximum = mCurrentPopulation[mCurrentPopulation.size()-1].fitness();

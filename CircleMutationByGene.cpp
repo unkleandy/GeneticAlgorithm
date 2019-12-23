@@ -4,22 +4,31 @@
 #include "RandomTools.h"
 #include "Point2d.h"
 #include "RandomTools.h"
+#include <memory>
 
+
+CircleMutationByGene::CircleMutationByGene()
+{
+}
 
 void CircleMutationByGene::mutate(Solution & offspring)
 {
-	ShapeCircle offspringCircle = static_cast<ShapeCircle const &> ((static_cast<CircleSolution const &>(offspring)).shape());
+	try {
+		ShapeCircle * offspringCircle = new ShapeCircle();
+		*offspringCircle = static_cast<ShapeCircle const &> ((static_cast<CircleSolution const &>(offspring)).shape());
+		double centerx = abs(offspringCircle->center().x() + RandomTools::generateRandomNumber(-5, 5));
+		double centery = abs(offspringCircle->center().y() + RandomTools::generateRandomNumber(-5, 5));
+		size_t radius = offspringCircle->radius() + RandomTools::generateRandomNumber(1, 5);
+		Point p;
+		p.setX(centerx);
+		p.setY(centery);
+		offspringCircle->setCenter(p);
+		offspringCircle->setRadius(radius);
 
-	double centerx = offspringCircle.center().x() + RandomTools::generateRandomNumber(-5, 5);
-	double centery = offspringCircle.center().y() + RandomTools::generateRandomNumber(-5, 5);
-	size_t radius = offspringCircle.radius() + RandomTools::generateRandomNumber(1, 5);
-	Point p;
-	p.setX(centerx);
-	p.setY(centery);
-	offspringCircle.setCenter(p);
-	offspringCircle.setRadius(radius);
+		static_cast<CircleSolution &>(offspring).setShape(offspringCircle);
+		//offspring.encode();
+	}
+	catch (int e) {
 
-	static_cast<CircleSolution &>(offspring).setShape(&offspringCircle);
-
-	offspring.encode();
+	}
 }

@@ -59,3 +59,4 @@ void ShapeSolution::setShape(Shape * shape)
 {
 	mShape = shape;
 }
+

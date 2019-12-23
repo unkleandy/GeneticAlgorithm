@@ -2,7 +2,6 @@
 #include "MutationByChromosome.h"
 
 
-
 MutationByChromosome::MutationByChromosome()
 {
 }

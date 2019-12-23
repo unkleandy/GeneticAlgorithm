@@ -1,8 +1,6 @@
 #include "GAEngine.h"
 
 
-
-
 GAEngine::GAEngine()
 {
 }
@@ -26,7 +24,6 @@ std::vector<FitnessStatistics> const & GAEngine::fitnessStatistics(size_t popula
 {
 	return (mEvolutionEngines[populationIndex]).fitnessStatistics();
 }
-
 
 void GAEngine::evolveUntilConvergence(GAParameters & parameters)
 {

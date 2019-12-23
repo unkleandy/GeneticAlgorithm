@@ -146,4 +146,5 @@ void GAParameters::setToDefault()
 	setSelectionStrategy(new SelectionRouletteWheel());
 	setCrossoverStrategy(new CrossoverSinglePointByChromosome());
 	setMutationStrategy(new MutationAggregator());
+	
 }

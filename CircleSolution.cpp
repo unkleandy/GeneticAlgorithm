@@ -23,8 +23,7 @@ void CircleSolution::randomize()
 	size_t canvasHeight = static_cast<size_t>(mCanvas.rectangle().size().height());
 	mCircle.setRadius(RandomTools::generateRandomNumber(0, canvasHeight / 2));
 	mCircle.setCenter(Point(RandomTools::generateRandomNumber(mCircle.radius(), canvasWidth - mCircle.radius()), RandomTools::generateRandomNumber(mCircle.radius(), canvasHeight - mCircle.radius())));
-	//mChromosome.randomize();
-	//decode();
+	encode();
 }
 
 void CircleSolution::encode()
