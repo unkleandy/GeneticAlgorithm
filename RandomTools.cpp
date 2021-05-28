@@ -1,12 +1,12 @@
 #include<random>
 #include"RandomTools.h"
-
 #include <chrono>
 
 
 
-//std::random_device RandomTools::randomDevice; // obtenir un nombre aléatoire du matériel (hardware)
-//std::mt19937 RandomTools::randomGenerator(randomDevice()); // donne un germe aléatoire au générateur
+
+//std::random_device RandomTools::randomDevice; // obtenir un nombre alÃ©atoire du matÃ©riel (hardware)
+//std::mt19937 RandomTools::randomGenerator(randomDevice()); // donne un germe alÃ©atoire au gÃ©nÃ©rateur
 
 bool RandomTools::generateEvent(double probability)
 {
@@ -17,7 +17,7 @@ bool RandomTools::generateEvent(double probability)
 }
 
 int RandomTools::generateRandomNumber(int min, int max) {
-	//std::uniform_int_distribution<> definer(min, max); // définit le range de la génération aléatoire
+	//std::uniform_int_distribution<> definer(min, max); // dÃ©finit le range de la gÃ©nÃ©ration alÃ©atoire
 	//return definer(randomGenerator);
 	//std::random_device rd;  //Will be used to obtain a seed for the random number engine
 	std::mt19937 gen(static_cast<size_t>(std::chrono::steady_clock::now().time_since_epoch().count())); //Standard mersenne_twister_engine seeded with rd()
