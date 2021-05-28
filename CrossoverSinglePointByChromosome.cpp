@@ -1,17 +1,20 @@
 #include "CrossoverSinglePointByChromosome.h"
+#include "Solution.h"
+#include "Chromosome.h"
+#include "RandomTools.h"
 
-
-
-//Solution CrossoverSinglePointByChromosome::breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring)
-//{
-//	return Solution();
-//}
-
-CrossoverSinglePointByChromosome::CrossoverSinglePointByChromosome()
+Solution const & CrossoverSinglePointByChromosome::breed(Solution const & genitor1, Solution const & genitor2, Solution & offspring)
 {
-}
+	int crossoverPoint;
+	crossoverPoint = abs(RandomTools::generateRandomNumber(0, offspring.chromosome().size()-1));
 
-
-CrossoverSinglePointByChromosome::~CrossoverSinglePointByChromosome()
-{
+	for (int i{}; i < crossoverPoint; ++i)
+	{
+		offspring.chromosome()[i] = genitor1.chromosome()[i];
+	}
+	for (int i{ crossoverPoint }; i < offspring.chromosome().size(); ++i)
+	{
+		offspring.chromosome()[i] = genitor2.chromosome()[i];
+	}
+	return offspring;
 }

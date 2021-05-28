@@ -1,80 +1,69 @@
-#include "Population.h"
-#include <Solution.h>
+ #include "Population.h"
+#include "Solution.h"
 
 
-Population::Population(){
+
+Population::Population() {
 }
 
 
-Population::~Population(){
+Population::~Population() {
 }
 
-size_t Population::size() const{
-	return mSolution.size();
+size_t Population::size() const {
+	return mSolutions.size();
 }
 
-void Population::set(size_t size, Solution & const SolutionSample){
-}
-
-Solution & Population::operator[](size_t pos){
-	return *mSolution.at(pos);
-}
-
-Solution const & Population::operator[](size_t pos) const{
-	return *mSolution.at(pos);
-}
-
-void Population::processFitness(){
-}
-
-void Population::randomize(){
-}
-
-void Population::encode(){
-}
-
-void Population::decode(){
-}
-
-//TODO
-void Population::quicksort(std::vector<Solution*>solutions, int left, int right) {
-	int leftTemp{ left }, rightTemp{ right };
-	int pivot = solutions[left]->fitness();
-	while (left < right) {
-		while ((solutions[right]->fitness() >= pivot) && (left < right))
-			right--;
-		if (left != right) {
-			solutions[left] = solutions[right];
-			left++;
-		}
-		while ((solutions[left]->fitness() <= pivot) && (left < right))
-			left++;
-		if (left != right) {
-			solutions[right] = solutions[left];
-			right--;
-		}
+void Population::set(size_t size, Solution const & solutionSample) {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
+		delete mSolutions[i];
 	}
-	//BUG A REGLER
-	//solutions[left]->fitness() = pivot;
-	pivot = left;
-	left = leftTemp;
-	right = rightTemp;
-	if (left < pivot)
-		quicksort(solutions, left, pivot - 1);
-	if (right > pivot)
-		quicksort(solutions, pivot + 1, right);
+
+	mSolutions.resize(size);
+	for (size_t i{}; i < mSolutions.size(); ++i) {
+		mSolutions[i] = solutionSample.clone();
+	}
 }
 
-void Population::sort(){
-
-	quicksort(mSolution, 0, mSolution.size()-1);
+Solution & Population::operator[](size_t pos) {
+	return *mSolutions.at(pos);
 }
 
-void Population::swap(Population & other){
+Solution const & Population::operator[](size_t pos) const {
+	return *mSolutions.at(pos);
 }
 
-//EFFACER UNE FOIS LA CLASSE SOLUTION EST FAITE
-fitness_t Solution::fitness() const{
-	return mFitness;
+void Population::processFitness() {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
+		mSolutions[i]->processFitness();
+	}
 }
-//---------------------------------------------
+
+void Population::randomize() {
+	for (size_t i{}; i < size(); ++i)
+		mSolutions[i]->randomize();
+}
+
+void Population::encode() {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
+		mSolutions[i]->encode();
+	}
+}
+
+void Population::decode() {
+	for (size_t i{}; i < mSolutions.size(); ++i) {
+		mSolutions[i]->decode();
+	}
+}
+
+void Population::sort() {
+	std::sort(mSolutions.begin(), mSolutions.end(), fitness_comparator());
+}
+
+void Population::swap(Population & other) {
+	mSolutions.swap(other.mSolutions);
+}
+
+void Population::setPopulationColor(int index) {
+	mPopulationColor = mColorTypes[index];
+}

@@ -1,3 +1,12 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :	Francis Labine		
+
 #pragma once
 #ifndef EVOLUTIONENGINE_H
 #define EVOLUTIONENGINE_H
@@ -15,11 +24,14 @@ public:
 	Population const & population() const;
 	void setup(GAParameters & parameters);
 	void evolveOneGeneration(GAParameters & parameters);
+	fitnessStatisticsOverTime const & fitnessStatistics() const;
+	void setPopulationColor(int index);
 
 private:
-	size_t mCurrentGeneration;
-	PopulationEngine mPopulationEngine;
-	fitnessStatisticsOverTime mFitnessStatisticsOverEpoch;
+	size_t mCurrentGeneration{};
+	PopulationEngine mPopulationEngine{};
+	fitnessStatisticsOverTime mFitnessStatisticsOverEpoch{};
+
 };
 
 #endif //EVOLUTIONENGINE_H

@@ -1,8 +1,18 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :	André Cohen		
+
 #pragma once
 #ifndef _MUTATIONBYCHROMOSOME_H_
 #define _MUTATIONBYCHROMOSOME_H_
 
 #include "MutationStrategy.h"
+#include "RandomTools.h"
 
 class MutationByChromosome : public MutationStrategy
 {

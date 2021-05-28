@@ -1,64 +1,48 @@
 
 #include <console.h>
 #include "ShapeOptimizer.h"
-#include "View.h"
+#include "ShapeCircle.h"
+#include "ShapeRectangle.h"
+#include "ShapeDiamond.h"
+#include "ViewMenu.h"
+#include "ViewRuntime.h"
+#include "Point.h"
+#include "Size.h"
+#include "Rectangle.h"
 
-
+#include "Chromosome.h"
+#include <vector>
 
 int main() {
 
-	ShapeOptimizer shOptimizer;
-	View view;
-	view.readInput();
+	//std::vector<bool> test;
 
-	// Code non utilisé, conservé pour références futures
-	/*using namespace windows_console;
-	using namespace std;
+	//test = { 1,1,0,0,1,1,0,0 };
 
-	std::string old_title;
-	csl >> window::title(old_title);
+	//Chromosome c;
 
-	csl << window::title("B52");
+	//uint32_t a{}, b{};
 
-	csl << window::fit(300, 200, "Consolas", font::size_type{ 3 }, font::ratio_type{ 1.0 })
-		<< window::unclosable
-		<< window::unresizable
-		<< window::center
-		<< cursor::invisible;
+	//c.resize(test.size());
 
-	image im;
-	im << pen(dot, text_color(bright, red), background_color(dark, red))
-		<< point(100,100)
-		<< brush(dot, text_color(dark, blue), background_color(dark, blue))
-		<< rectangle(105, 105, 150, 150)
-		<< no_brush
-		<< circle(20,20,10)
-		<< pen(dot, text_color(bright, yellow), background_color(dark, red))
-		<< line(0,0,100,100) ;
-	csl << im;
+	//c.write(uint32_t(10), 0, 8);
 
-	image i2;
-	i2 << fill;
+	//c.read(a, 0, 8);
 
+	//c.write(uint32_t(6), 0, 8);
+
+	//c.read(a, 0, 8);
 	
 
-
-	console_events ce;
-	while (true) {
-		ce.read_events();
-		while (ce.key_events_count()) {
-			switch (ce.next_key_event().ascii_value()) {
-			case 27: return 0;
-			case ' ':
-				csl << im;
-				break;
-			case 'a':
-			case 'A':
-				csl << i2;
-				break;
-			}
-		}
-	}*/
+	// Ajoute un filtre pour ne pas générer 2 événements lors d'une entrée au cliavier (un au "key up" et un au "key down")
+	windows_console::csl << windows_console::key_events::add_filter<windows_console::key_filter_up>;
+	ViewMenu viewMenu;
+	ViewRuntime viewRuntime;
+	ShapeOptimizer shapeOptimizer(viewMenu, viewRuntime);
+	ShapeOptimizer * shapeOptimizerPtr = & shapeOptimizer;
+	viewMenu.setShapeOptimizer(shapeOptimizerPtr);
+	viewRuntime.setShapeOptimizer(shapeOptimizerPtr);
+	shapeOptimizer.run();
 
 	return 0;
 }

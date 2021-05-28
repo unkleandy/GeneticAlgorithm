@@ -1,8 +1,17 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :	Andréa Cohen	
+
 #pragma once
 #ifndef _MUTATIONSTRATEGY_H_
 #define _MUTATIONSTRATEGY_H_
 
-#include <Solution.h>
+#include "Solution.h"
 
 class MutationStrategy
 {
@@ -14,8 +23,8 @@ public:
 	//setters
 	void setMutationRate(double mutationRate);
 	//getters
-	double mutationRate();
-	virtual void mutate(Solution & offspring);
+	double mutationRate()const;
+	virtual void mutate(Solution & offspring) = 0;
 };
 
 #endif // !_MUTATIONSTRATEGY_H_

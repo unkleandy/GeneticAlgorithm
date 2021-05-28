@@ -4,22 +4,17 @@
 
 void MutationStrategy::setMutationRate(double mutationRate)
 {
+	mMutationRate = mutationRate;
 }
 
-double MutationStrategy::mutationRate()
+double MutationStrategy::mutationRate() const
 {
-	return 0.0;
+	return mMutationRate;
 }
 
-void MutationStrategy::mutate(Solution & offspring)
-{
-}
+void MutationStrategy::mutate(Solution & offspring) {}
 
-MutationStrategy::MutationStrategy()
-{
-}
+MutationStrategy::MutationStrategy() {}
 
 
-MutationStrategy::~MutationStrategy()
-{
-}
+MutationStrategy::~MutationStrategy() {}

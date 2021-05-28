@@ -1,3 +1,12 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur :	Andréa Cohen		
+
 #pragma once
 
 #ifndef GAENGINE_H
@@ -6,17 +15,25 @@
 #include <vector>
 #include <list>
 #include <memory>
+#include "GAParameters.h"
+#include "EvolutionEngine.h"
+#include "Population.h"
+#include "FitnessStatistics.h"
+#include "EvolutionStatus.h"
+#include "EvolutionObserver.h"
 
-class GAParameters;
-class EvolutionEngine;              // *
-class Population;                   // *
-struct FitnessStatistics;           // *
+class EvolutionObserver
+{
+public:
+	EvolutionObserver() = default;
+	~EvolutionObserver() = default;
+	virtual void update(GAEngine const & engine) = 0;
+};
 
 class GAEngine
 {
 public:
-	class EvolutionObserver;
-	enum class EvolutionStatus { NeverStarted, InProcess, SolutionAvailable };
+	
 
 	GAEngine();
 	GAEngine(GAEngine const &) = default;
@@ -26,11 +43,11 @@ public:
 	~GAEngine() = default;
 
 	EvolutionStatus status() const;
-	size_t currentGeneration() const;
+	size_t currentGeneration(size_t populationIndex = 0) const;
 	Population const & population(size_t populationIndex = 0) const;
 	std::vector<FitnessStatistics> const & fitnessStatistics(size_t populationIndex = 0) const; // *
 
-	bool evolveUntilConvergence(GAParameters & parameters);
+	void evolveUntilConvergence(GAParameters & parameters);
 	void stopEvolution();
 
 	void registerObserver(EvolutionObserver & observer);
@@ -38,24 +55,11 @@ public:
 	void unregisterObservers();
 
 private:
-	EvolutionStatus mEvolutionStatus{ EvolutionStatus::NeverStarted };
-	std::vector<std::shared_ptr<EvolutionEngine>> mEvolutionEngines;        // *
+	EvolutionStatus mEvolutionStatus;
+	std::vector<EvolutionEngine> mEvolutionEngines;        // *
 	std::list<EvolutionObserver*> mObservers;
 
 	void updateObservers();
 };
-
-class GAEngine::EvolutionObserver{
-public:
-	EvolutionObserver() = default;
-	EvolutionObserver(EvolutionObserver const &) = default;
-	EvolutionObserver(EvolutionObserver &&) = default;
-	EvolutionObserver& operator=(EvolutionObserver const &) = default;
-	EvolutionObserver& operator=(EvolutionObserver &&) = default;
-	virtual ~EvolutionObserver() = default;
-
-	virtual void update(GAEngine const & engine) = 0;
-};
-
 
 #endif // GAENGINE_H

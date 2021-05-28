@@ -1,9 +1,18 @@
+// Contexte de réalisation: cours B52 - Développement en environnement de base de données
+//
+// Description:				
+// 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+// 
+// Date de création :		2019/12/21
+// Auteur : Andréa Cohen			
+
 #pragma once
 #ifndef _GA_PARAMETERS_H_
 #define _GA_PARAMETERS_H_
 
 
-#include "GAEngine.h"
+class GAEngine;
 class SelectionStrategy;
 class CrossoverStrategy;
 class MutationStrategy;
@@ -24,12 +33,12 @@ public:
 
 	size_t populationSize() const;
 	size_t ellitismSize() const;
-	size_t concurrentPopulationCount();
+	size_t concurrentPopulationCount() const;
 	size_t maximumGenerationCount() const;
 
-	SelectionStrategy & selectionStrategy();
-	CrossoverStrategy & crossoverStrategy();
-	MutationStrategy & mutationStrategy();
+	SelectionStrategy & selectionStrategy()const;
+	CrossoverStrategy & crossoverStrategy()const;
+	MutationStrategy & mutationStrategy()const;
 	Solution const & solutionSample() const;
 
 	void setPopulationSize(size_t size);

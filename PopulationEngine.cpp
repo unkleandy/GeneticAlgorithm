@@ -15,19 +15,53 @@ FitnessStatistics const & PopulationEngine::fitnessStatistics() const{
 }
 
 void PopulationEngine::setup(GAParameters & parameters){
+	mCurrentPopulation.set(parameters.populationSize(), parameters.solutionSample());
+	mNextPopulation.set(parameters.populationSize(), parameters.solutionSample());
+	mFitnessStatistics.reset();
+	//mCurrentPopulation.randomize();
+	mNextPopulation.randomize();
+	finalizeCurrentEvolution();
 }
 
 void PopulationEngine::evolveOneGeneration(GAParameters & parameters){
+	parameters.selectionStrategy().prepare(mCurrentPopulation);
+	processElitism(parameters.ellitismSize());
+	for (size_t i{ parameters.ellitismSize() }; i < mCurrentPopulation.size(); ++i) {
+		processOneOffspring(parameters, i);
+	}
+ 	finalizeCurrentEvolution();
+}
+
+void PopulationEngine::setPopulationColor(int index) {
+	mCurrentPopulation.setPopulationColor(index);
+	mNextPopulation.setPopulationColor(index);
 }
 
 void PopulationEngine::processElitism(size_t elitismSize){
+	for (size_t i{ 0 }; i < elitismSize; ++i) {
+		mNextPopulation[i].copy(mCurrentPopulation[mCurrentPopulation.size() - i - 1]);
+	}
 }
 
 void PopulationEngine::processOneOffspring(GAParameters & parameters, size_t pos){
+	parameters.crossoverStrategy().breed(parameters.selectionStrategy().select(mCurrentPopulation), parameters.selectionStrategy().select(mCurrentPopulation), mNextPopulation[pos]);
+	parameters.mutationStrategy().mutate(mNextPopulation[pos]);
 }
 
 void PopulationEngine::finalizeCurrentEvolution(){
+	mNextPopulation.decode();
+	mNextPopulation.processFitness();
+	mNextPopulation.sort();
+	mCurrentPopulation.swap(mNextPopulation);
+	processStatistics();
 }
 
-void PopulationEngine::processStatistics(){
+void PopulationEngine::processStatistics() {
+	fitness_t min{ mCurrentPopulation[0].fitness() }, max{ 0 }, avg{ 0 };
+	for (size_t i{ 0 }; i < mCurrentPopulation.size(); ++i) {
+		avg += mCurrentPopulation[i].fitness();
+	}
+	mFitnessStatistics.maximum = mCurrentPopulation[mCurrentPopulation.size()-1].fitness();
+	mFitnessStatistics.minimum = mCurrentPopulation[0].fitness();
+	mFitnessStatistics.average = avg / mCurrentPopulation.size();
 }
